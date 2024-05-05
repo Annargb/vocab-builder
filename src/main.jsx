@@ -11,7 +11,7 @@ import App from "./App.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/my-template-react-vite">
+      <BrowserRouter basename="/vocab-builder">
         <ThemeProvider theme={theme}>
           <App />
           <GlobalStyle />
