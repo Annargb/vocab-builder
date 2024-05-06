@@ -2,7 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
-const Home = lazy(() => import("./pages/Home/Home"));
+const Register = lazy(() => import("./pages/Register/Register"));
+const Login = lazy(() => import("./pages/Login/Login"));
+
+// const Home = lazy(() => import("./pages/Home/Home"));
 const Nannies = lazy(() => import("./pages/Nannies/Nannies"));
 const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 
@@ -11,10 +14,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
+          {/* <Route index element={<Home />} /> */}
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+
           <Route path="nannies" element={<Nannies />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Route>
       </Routes>
     </>
