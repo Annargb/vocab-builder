@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Header from "../Header/Header";
+import { Header } from "../Header/Header";
 import { Outlet } from "react-router-dom";
 import { Container } from "../../styles/Container";
 

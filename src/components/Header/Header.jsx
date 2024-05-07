@@ -1,15 +1,21 @@
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import * as v from "./Header.styled";
+import icons from "../../images/icons.svg";
 
-const Header = () => {
+export const Header = () => {
   return (
-    <header>
-      <nav>
+    <v.Header>
+      <v.Logo>
+        <v.LogoIcon>
+          <use href={`${icons}#logo`} />
+        </v.LogoIcon>
+        <v.LogoText>VocabBuilder</v.LogoText>
+      </v.Logo>
+      {/* <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/nannies">Nannies</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
-      </nav>
-    </header>
+      </nav> */}
+    </v.Header>
   );
 };
-
-export default Header;

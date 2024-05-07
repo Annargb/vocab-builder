@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+  background-color: ${(p) => p.theme.colors.whiteBg};
 
   @media screen and (min-width: 375px) {
     width: 375px;
