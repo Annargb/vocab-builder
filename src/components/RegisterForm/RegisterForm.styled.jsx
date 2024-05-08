@@ -1,4 +1,34 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+export const FormWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  width: 100%;
+  /* height: 549px; */
+  padding: 32px 16px 57px 16px;
+  border-radius: 25px 25px 0 0;
+  background-color: ${(p) => p.theme.colors.formBgColor};
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    position: static;
+    width: 627px;
+    /* height: 591px; */
+    padding: 48px 64px;
+    border-radius: 30px;
+  }
+`;
+
+export const Form = styled.form`
+  margin-bottom: 16px;
+`;
 
 export const Title = styled.h1`
   margin-bottom: 16px;
@@ -42,10 +72,19 @@ export const InputContainer = styled.div`
 
 export const Label = styled.label`
   position: relative;
+  width: 100%;
+
+  @media screen and (min-width: 375px) {
+    width: 343px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const Input = styled.input`
-  width: 343px;
+  width: 100%;
   padding: 16px 18px;
   font-weight: 400;
   font-size: 16px;
@@ -62,6 +101,10 @@ export const Input = styled.input`
     font-size: 16px;
     line-height: 1.5;
     color: ${(p) => p.theme.colors.black};
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 343px;
   }
 
   @media screen and (min-width: 768px) {
@@ -83,7 +126,8 @@ export const Input = styled.input`
 `;
 
 export const SubmitButton = styled.button`
-  padding: 16px 139px;
+  width: 100%;
+  padding: 16px 0;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
@@ -93,7 +137,6 @@ export const SubmitButton = styled.button`
   transition: background-color 250ms ${(p) => p.theme.transition};
 
   @media screen and (min-width: 768px) {
-    padding: 16px 213px;
     font-size: 18px;
     line-height: 1.56;
   }
@@ -101,5 +144,27 @@ export const SubmitButton = styled.button`
   &:hover,
   &:focus {
     background-color: ${(p) => p.theme.colors.mainGreenHover};
+  }
+`;
+
+export const NavigateLink = styled(Link)`
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  /* text-decoration: underline; */
+  text-decoration-skip-ink: none;
+  color: ${(p) => p.theme.colors.linkColor};
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: ${(p) => p.theme.colors.linkColor};
   }
 `;

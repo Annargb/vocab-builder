@@ -1,17 +1,17 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "../../schemas/schemas";
-import * as v from "./RegisterForm.styled";
+import { loginSchema } from "../../schemas/schemas";
+import * as v from "../RegisterForm/RegisterForm.styled";
 import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(loginSchema),
   });
   const onSubmit = (data) => console.log(data);
 
@@ -19,24 +19,13 @@ export const RegisterForm = () => {
 
   return (
     <v.FormWrapper>
-      <v.Title>Register</v.Title>
+      <v.Title>Login</v.Title>
       <v.SubTitle>
-        To start using our services, please fill out the registration form
-        below. All fields are mandatory:
+        Please enter your login details to continue using our service:
       </v.SubTitle>
 
       <v.Form onSubmit={handleSubmit(onSubmit)}>
         <v.InputContainer>
-          <v.Label>
-            <v.Input
-              {...register("name")}
-              type="text"
-              placeholder="Name"
-              className={errors.name ? "error" : "valid"}
-            />
-            {errors.name && <span>{errors.name.message}</span>}
-          </v.Label>
-
           <v.Label>
             <v.Input
               {...register("email")}
@@ -62,9 +51,9 @@ export const RegisterForm = () => {
           </v.Label>
         </v.InputContainer>
 
-        <v.SubmitButton type="submit">Register</v.SubmitButton>
+        <v.SubmitButton type="submit">Login</v.SubmitButton>
       </v.Form>
-      <v.NavigateLink to="/login">Login</v.NavigateLink>
+      <v.NavigateLink to="/register">Register</v.NavigateLink>
     </v.FormWrapper>
   );
 };

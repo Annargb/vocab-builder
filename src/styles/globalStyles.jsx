@@ -106,7 +106,9 @@ input, textarea, select, button {
 }
 
 button {
+  padding: 0;
   cursor: pointer;
+  background-color: transparent;
   border: none;
   outline: none;
   }
