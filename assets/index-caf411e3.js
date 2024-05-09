@@ -391,6 +391,7 @@ button {
 `,gx="/vocab-builder/assets/icons-05830bbe.svg",vx=()=>M.jsx(px,{children:M.jsxs(hx,{children:[M.jsx(mx,{children:M.jsx("use",{href:`${gx}#logo`})}),M.jsx(yx,{children:"VocabBuilder"})]})}),wx=Sr.div`
   position: relative;
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0 16px;
   background-color: ${e=>e.theme.colors.whiteBg};
@@ -402,10 +403,18 @@ button {
   @media screen and (min-width: 768px) {
     width: 768px;
     padding: 0 32px;
+
+    //
+    /* background-image: linear-gradient(
+      292deg,
+      rgba(133, 170, 159, 0.51) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-position: right bottom; */
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
     padding: 0 100px;
   }
-`,Sx=()=>M.jsxs(wx,{children:[M.jsx(vx,{}),M.jsx("main",{children:M.jsx(P.Suspense,{fallback:null,children:M.jsx(dv,{})})})]}),Ex=P.lazy(()=>Il(()=>import("./Register-41d43009.js"),["assets/Register-41d43009.js","assets/useVisiblePassword-5f1ee7c2.js"])),xx=P.lazy(()=>Il(()=>import("./Login-dee93d91.js"),["assets/Login-dee93d91.js","assets/useVisiblePassword-5f1ee7c2.js"])),kx=P.lazy(()=>Il(()=>import("./Nannies-b8bd05bd.js"),[])),Cx=P.lazy(()=>Il(()=>import("./Favorites-8fb6a28b.js"),[]));function _x(){return M.jsx(M.Fragment,{children:M.jsx(hv,{children:M.jsxs(Dn,{path:"/",element:M.jsx(Sx,{}),children:[M.jsx(Dn,{path:"login",element:M.jsx(xx,{})}),M.jsx(Dn,{path:"register",element:M.jsx(Ex,{})}),M.jsx(Dn,{path:"nannies",element:M.jsx(kx,{})}),M.jsx(Dn,{path:"favorites",element:M.jsx(Cx,{})})]})})})}Os.createRoot(document.getElementById("root")).render(M.jsx(ke.StrictMode,{children:M.jsx(Bv,{store:eE,children:M.jsx(Ev,{basename:"/vocab-builder",children:M.jsxs(ZE,{theme:rx,children:[M.jsx(_x,{}),M.jsx(cx,{})]})})})}));export{Rx as L,ke as R,Xm as g,gx as i,M as j,P as r,Sr as u};
+`,Sx=()=>M.jsxs(wx,{children:[M.jsx(vx,{}),M.jsx("main",{children:M.jsx(P.Suspense,{fallback:null,children:M.jsx(dv,{})})})]}),Ex=P.lazy(()=>Il(()=>import("./Register-f970eac3.js"),["assets/Register-f970eac3.js","assets/useVisiblePassword-7337fdcd.js"])),xx=P.lazy(()=>Il(()=>import("./Login-178be923.js"),["assets/Login-178be923.js","assets/useVisiblePassword-7337fdcd.js"])),kx=P.lazy(()=>Il(()=>import("./Nannies-9bbd4da8.js"),[])),Cx=P.lazy(()=>Il(()=>import("./Favorites-ff9a340e.js"),[]));function _x(){return M.jsx(M.Fragment,{children:M.jsx(hv,{children:M.jsxs(Dn,{path:"/",element:M.jsx(Sx,{}),children:[M.jsx(Dn,{path:"login",element:M.jsx(xx,{})}),M.jsx(Dn,{path:"register",element:M.jsx(Ex,{})}),M.jsx(Dn,{path:"nannies",element:M.jsx(kx,{})}),M.jsx(Dn,{path:"favorites",element:M.jsx(Cx,{})})]})})})}Os.createRoot(document.getElementById("root")).render(M.jsx(ke.StrictMode,{children:M.jsx(Bv,{store:eE,children:M.jsx(Ev,{basename:"/vocab-builder",children:M.jsxs(ZE,{theme:rx,children:[M.jsx(_x,{}),M.jsx(cx,{})]})})})}));export{Rx as L,ke as R,Xm as g,gx as i,M as j,P as r,Sr as u};
