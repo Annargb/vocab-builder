@@ -16,6 +16,6 @@ export const CommonContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row-reverse;
-    padding: 40px 0 80px 0;
+    padding: 90px 0 104px 0;
   }
 `;

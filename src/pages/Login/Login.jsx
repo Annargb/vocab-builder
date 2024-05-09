@@ -1,10 +1,13 @@
+import { ImageBackground } from "../../components/ImageBackground/ImageBackground";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
+import * as v from "./Login.styled";
 
 const Login = () => {
   return (
-    <div>
+    <v.CommonContainer>
+      <ImageBackground />
       <LoginForm />
-    </div>
+    </v.CommonContainer>
   );
 };
 

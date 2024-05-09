@@ -53,7 +53,9 @@ export const LoginForm = () => {
 
         <v.SubmitButton type="submit">Login</v.SubmitButton>
       </v.Form>
-      <v.NavigateLink to="/register">Register</v.NavigateLink>
+      <v.LinkWrap>
+        <v.NavigateLink to="/register">Register</v.NavigateLink>
+      </v.LinkWrap>
     </v.FormWrapper>
   );
 };

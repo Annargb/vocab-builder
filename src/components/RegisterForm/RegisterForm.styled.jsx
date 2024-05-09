@@ -147,24 +147,41 @@ export const SubmitButton = styled.button`
   }
 `;
 
+export const LinkWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const NavigateLink = styled(Link)`
   position: relative;
   display: inline-block;
-  margin: 0 auto;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
-  /* text-decoration: underline; */
-  text-decoration-skip-ink: none;
   color: ${(p) => p.theme.colors.linkColor};
+  transition: color 250ms ${(p) => p.theme.transition};
 
   &::after {
     content: "";
     position: absolute;
-    bottom: 4px;
-    display: block;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
     width: 100%;
     height: 1px;
     background-color: ${(p) => p.theme.colors.linkColor};
+    transition: background-color 250ms ${(p) => p.theme.transition};
+  }
+
+  &:hover,
+  &:focus {
+    color: ${(p) => p.theme.colors.black};
+
+    &::after {
+      background-color: ${(p) => p.theme.colors.black};
+    }
   }
 `;

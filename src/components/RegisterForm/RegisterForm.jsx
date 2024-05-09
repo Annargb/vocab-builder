@@ -4,6 +4,7 @@ import { registerSchema } from "../../schemas/schemas";
 import * as v from "./RegisterForm.styled";
 import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
+import { FormMessage } from "../FormMessage/FormMessage";
 
 export const RegisterForm = () => {
   const {
@@ -34,7 +35,7 @@ export const RegisterForm = () => {
               placeholder="Name"
               className={errors.name ? "error" : "valid"}
             />
-            {errors.name && <span>{errors.name.message}</span>}
+            {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
           </v.Label>
 
           <v.Label>
@@ -44,7 +45,7 @@ export const RegisterForm = () => {
               placeholder="Email"
               className={errors.email ? "error" : "valid"}
             />
-            {errors.email && <span>{errors.email.message}</span>}
+            {errors.email && <FormMessage>{errors.email.message}</FormMessage>}
           </v.Label>
 
           <v.Label>
@@ -54,7 +55,9 @@ export const RegisterForm = () => {
               placeholder="Password"
               className={errors.password ? "error" : "valid"}
             />
-            {errors.password && <span>{errors.password.message}</span>}
+            {errors.password && (
+              <FormMessage>{errors.password.message}</FormMessage>
+            )}
             <PasswordButton
               changeVisibility={changeVisibility}
               isVisiblePassword={isVisiblePassword}
@@ -64,7 +67,9 @@ export const RegisterForm = () => {
 
         <v.SubmitButton type="submit">Register</v.SubmitButton>
       </v.Form>
-      <v.NavigateLink to="/login">Login</v.NavigateLink>
+      <v.LinkWrap>
+        <v.NavigateLink to="/login">Login</v.NavigateLink>
+      </v.LinkWrap>
     </v.FormWrapper>
   );
 };
