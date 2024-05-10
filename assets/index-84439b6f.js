@@ -399,6 +399,9 @@ button {
   @media screen and (min-width: 375px) {
     width: 375px;
   }
+  @media screen and (max-width: 767px) {
+    height: 812px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -417,4 +420,4 @@ button {
     width: 1440px;
     padding: 0 100px;
   }
-`,Sx=()=>M.jsxs(wx,{children:[M.jsx(vx,{}),M.jsx("main",{children:M.jsx(P.Suspense,{fallback:null,children:M.jsx(dv,{})})})]}),Ex=P.lazy(()=>Il(()=>import("./Register-4d727d88.js"),["assets/Register-4d727d88.js","assets/FormMessage-9dca32f9.js"])),xx=P.lazy(()=>Il(()=>import("./Login-4eb99568.js"),["assets/Login-4eb99568.js","assets/FormMessage-9dca32f9.js"])),kx=P.lazy(()=>Il(()=>import("./Nannies-d3b81a86.js"),[])),Cx=P.lazy(()=>Il(()=>import("./Favorites-5515382c.js"),[]));function _x(){return M.jsx(M.Fragment,{children:M.jsx(hv,{children:M.jsxs(Dn,{path:"/",element:M.jsx(Sx,{}),children:[M.jsx(Dn,{path:"login",element:M.jsx(xx,{})}),M.jsx(Dn,{path:"register",element:M.jsx(Ex,{})}),M.jsx(Dn,{path:"nannies",element:M.jsx(kx,{})}),M.jsx(Dn,{path:"favorites",element:M.jsx(Cx,{})})]})})})}Os.createRoot(document.getElementById("root")).render(M.jsx(ke.StrictMode,{children:M.jsx(Bv,{store:eE,children:M.jsx(Ev,{basename:"/vocab-builder",children:M.jsxs(ZE,{theme:rx,children:[M.jsx(_x,{}),M.jsx(cx,{})]})})})}));export{Rx as L,ke as R,Xm as g,gx as i,M as j,P as r,Sr as u};
+`,Sx=()=>M.jsxs(wx,{children:[M.jsx(vx,{}),M.jsx("main",{children:M.jsx(P.Suspense,{fallback:null,children:M.jsx(dv,{})})})]}),Ex=P.lazy(()=>Il(()=>import("./Register-faa94746.js"),["assets/Register-faa94746.js","assets/FormMessage-30b3d051.js"])),xx=P.lazy(()=>Il(()=>import("./Login-bc489aae.js"),["assets/Login-bc489aae.js","assets/FormMessage-30b3d051.js"])),kx=P.lazy(()=>Il(()=>import("./Nannies-9b0b97ea.js"),[])),Cx=P.lazy(()=>Il(()=>import("./Favorites-87a2eeb2.js"),[]));function _x(){return M.jsx(M.Fragment,{children:M.jsx(hv,{children:M.jsxs(Dn,{path:"/",element:M.jsx(Sx,{}),children:[M.jsx(Dn,{path:"login",element:M.jsx(xx,{})}),M.jsx(Dn,{path:"register",element:M.jsx(Ex,{})}),M.jsx(Dn,{path:"nannies",element:M.jsx(kx,{})}),M.jsx(Dn,{path:"favorites",element:M.jsx(Cx,{})})]})})})}Os.createRoot(document.getElementById("root")).render(M.jsx(ke.StrictMode,{children:M.jsx(Bv,{store:eE,children:M.jsx(Ev,{basename:"/vocab-builder",children:M.jsxs(ZE,{theme:rx,children:[M.jsx(_x,{}),M.jsx(cx,{})]})})})}));export{Rx as L,ke as R,Xm as g,gx as i,M as j,P as r,Sr as u};

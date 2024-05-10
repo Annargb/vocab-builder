@@ -1,4 +1,4 @@
-import{u as R,j as re,R as K,g as yr,L as gr,i as Qe,r as xr}from"./index-e42fe79e.js";const br="/vocab-builder/assets/homebg-mobile-1x-9d83dd05.png",vr="/vocab-builder/assets/homebg-mobile-2x-febfa171.png",wr="/vocab-builder/assets/homebg-desktop-1x-ffc1ff6b.png",_r="/vocab-builder/assets/homebg-desktop-2x-4c662930.png",Fr=R.div`
+import{u as R,j as re,R as K,g as yr,L as gr,i as Qe,r as xr}from"./index-84439b6f.js";const br="/vocab-builder/assets/homebg-mobile-1x-9d83dd05.png",vr="/vocab-builder/assets/homebg-mobile-2x-febfa171.png",wr="/vocab-builder/assets/homebg-desktop-1x-ffc1ff6b.png",_r="/vocab-builder/assets/homebg-desktop-2x-4c662930.png",Fr=R.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
