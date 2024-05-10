@@ -4,13 +4,15 @@ import { loginSchema } from "../../schemas/schemas";
 import * as v from "../RegisterForm/RegisterForm.styled";
 import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
+import { FormMessage } from "../FormMessage/FormMessage";
 
 export const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm({
+    mode: "onChange",
     resolver: yupResolver(loginSchema),
   });
   const onSubmit = (data) => console.log(data);
@@ -31,9 +33,15 @@ export const LoginForm = () => {
               {...register("email")}
               type="text"
               placeholder="Email"
-              className={errors.email ? "error" : "valid"}
+              className={
+                dirtyFields.email ? (errors.email ? "error" : "valid") : ""
+              }
             />
-            {errors.email && <span>{errors.email.message}</span>}
+            {(dirtyFields.email || errors.email) && (
+              <FormMessage error={errors.email !== undefined}>
+                {errors.email?.message || "Success email"}
+              </FormMessage>
+            )}
           </v.Label>
 
           <v.Label>
@@ -41,13 +49,23 @@ export const LoginForm = () => {
               {...register("password")}
               type={isVisiblePassword ? "text" : "password"}
               placeholder="Password"
-              className={errors.password ? "error" : "valid"}
+              className={
+                dirtyFields.password
+                  ? errors.password
+                    ? "error"
+                    : "valid"
+                  : ""
+              }
             />
-            {errors.password && <span>{errors.password.message}</span>}
             <PasswordButton
               changeVisibility={changeVisibility}
               isVisiblePassword={isVisiblePassword}
             />
+            {(dirtyFields.password || errors.password) && (
+              <FormMessage error={errors.password !== undefined}>
+                {errors.password?.message || "Success password"}
+              </FormMessage>
+            )}
           </v.Label>
         </v.InputContainer>
 

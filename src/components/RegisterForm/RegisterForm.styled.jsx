@@ -4,9 +4,6 @@ import styled from "styled-components";
 export const FormWrapper = styled.div`
   position: absolute;
   right: 0;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   width: 100%;
   /* height: 549px; */
   padding: 32px 16px 57px 16px;
@@ -73,6 +70,7 @@ export const InputContainer = styled.div`
 export const Label = styled.label`
   position: relative;
   width: 100%;
+  height: 56px;
 
   @media screen and (min-width: 375px) {
     width: 343px;
@@ -90,6 +88,7 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 1.5;
   color: ${(p) => p.theme.colors.black};
+  background-color: inherit;
   border: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
   border-radius: 15px;

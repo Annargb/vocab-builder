@@ -10,8 +10,10 @@ export const RegisterForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm({
+    mode: "onChange",
+    // mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
   const onSubmit = (data) => console.log(data);
@@ -33,9 +35,16 @@ export const RegisterForm = () => {
               {...register("name")}
               type="text"
               placeholder="Name"
-              className={errors.name ? "error" : "valid"}
+              className={
+                dirtyFields.name ? (errors.name ? "error" : "valid") : ""
+              }
             />
-            {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
+            {console.log(errors.name)}
+            {(dirtyFields.name || errors.name) && (
+              <FormMessage error={errors.name !== undefined}>
+                {errors.name?.message || "Success name"}
+              </FormMessage>
+            )}
           </v.Label>
 
           <v.Label>
@@ -43,9 +52,15 @@ export const RegisterForm = () => {
               {...register("email")}
               type="text"
               placeholder="Email"
-              className={errors.email ? "error" : "valid"}
+              className={
+                dirtyFields.email ? (errors.email ? "error" : "valid") : ""
+              }
             />
-            {errors.email && <FormMessage>{errors.email.message}</FormMessage>}
+            {(dirtyFields.email || errors.email) && (
+              <FormMessage error={errors.email !== undefined}>
+                {errors.email?.message || "Success email"}
+              </FormMessage>
+            )}
           </v.Label>
 
           <v.Label>
@@ -53,15 +68,23 @@ export const RegisterForm = () => {
               {...register("password")}
               type={isVisiblePassword ? "text" : "password"}
               placeholder="Password"
-              className={errors.password ? "error" : "valid"}
+              className={
+                dirtyFields.password
+                  ? errors.password
+                    ? "error"
+                    : "valid"
+                  : ""
+              }
             />
-            {errors.password && (
-              <FormMessage>{errors.password.message}</FormMessage>
-            )}
             <PasswordButton
               changeVisibility={changeVisibility}
               isVisiblePassword={isVisiblePassword}
             />
+            {(dirtyFields.password || errors.password) && (
+              <FormMessage error={errors.password !== undefined}>
+                {errors.password?.message || "Success password"}
+              </FormMessage>
+            )}
           </v.Label>
         </v.InputContainer>
 
