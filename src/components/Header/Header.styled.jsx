@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 16px 0 12px 0;
 
   @media screen and (min-width: 768px) {
@@ -33,5 +36,20 @@ export const LogoText = styled.span`
   @media screen and (min-width: 768px) {
     font-size: 22px;
     line-height: 1.45;
+  }
+`;
+
+export const UserMenuWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 28px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 16px;
   }
 `;

@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Header } from "../Header/Header";
 import { Outlet } from "react-router-dom";
 import { Container } from "../../styles/Container";
+import { Toaster } from "react-hot-toast";
 
 const SharedLayout = () => {
   return (
@@ -12,6 +13,7 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
+      <Toaster position="top-right" reverseOrder={false} />
     </Container>
   );
 };

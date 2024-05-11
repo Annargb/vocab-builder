@@ -5,8 +5,12 @@ import * as v from "../RegisterForm/RegisterForm.styled";
 import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
 import { FormMessage } from "../FormMessage/FormMessage";
+import { useDispatch } from "react-redux";
+import { logInUser } from "../../redux/auth/authOperation";
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,10 @@ export const LoginForm = () => {
     mode: "onChange",
     resolver: yupResolver(loginSchema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(logInUser(data));
+  };
 
   const { isVisiblePassword, changeVisibility } = useVisiblePassword();
 

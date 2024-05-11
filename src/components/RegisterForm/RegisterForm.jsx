@@ -5,8 +5,12 @@ import * as v from "./RegisterForm.styled";
 import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
 import { FormMessage } from "../FormMessage/FormMessage";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../redux/auth/authOperation";
 
 export const RegisterForm = ({ $register }) => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -16,7 +20,10 @@ export const RegisterForm = ({ $register }) => {
     // mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(registerUser(data));
+  };
 
   const { isVisiblePassword, changeVisibility } = useVisiblePassword();
 
@@ -43,7 +50,6 @@ export const RegisterForm = ({ $register }) => {
                   : ""
               }
             />
-            {console.log(errors.name)}
             {(dirtyFields.name || errors.name) && (
               <FormMessage error={errors.name !== undefined}>
                 {errors.name?.message || "Success name"}

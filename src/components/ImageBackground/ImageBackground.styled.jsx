@@ -10,27 +10,27 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* margin-bottom: 8px; */
+  margin-bottom: 8px;
 
-  @media screen and (max-width: 767px) {
+  /* @media screen and (max-width: 767px) {
     display: ${({ $register }) => {
-      switch ($register) {
-        case true:
-          return "block";
-        default:
-          return "flex";
-      }
-    }};
+    switch ($register) {
+      case true:
+        return "block";
+      default:
+        return "flex";
+    }
+  }};
 
     margin-bottom: ${({ $register }) => {
-      switch ($register) {
-        case true:
-          return "8px";
-        default:
-          return "43px";
-      }
-    }};
-  }
+    switch ($register) {
+      case true:
+        return "8px";
+      default:
+        return "43px";
+    }
+  }};
+  } */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -60,7 +60,7 @@ export const ImgContainer = styled.div`
 `;
 
 export const SubText = styled.p`
-  /* margin-bottom: 35px; */
+  margin-bottom: 35px;
   font-weight: 400;
   font-size: 14px;
   color: ${(p) => p.theme.colors.textColor};
@@ -77,7 +77,7 @@ export const SubText = styled.p`
   }
 
   @media screen and (min-width: 768px) {
-    /* margin-bottom: 0; */
+    margin-bottom: 0;
     font-size: 16px;
     line-height: 1.5;
   }

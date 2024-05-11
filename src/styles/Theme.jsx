@@ -4,6 +4,7 @@ export const theme = {
     mainGreenHover: "#a5c0b8",
     black: "#121417",
     white: "#fcfcfc",
+    snowWhite: "#fff",
     whiteBg: "#f8f8f8",
     errorColor: "#d80027",
     successColor: "#3cbf61",
@@ -11,6 +12,7 @@ export const theme = {
     linkColor: "rgba(18, 20, 23, 0.5)",
     textColor: "rgba(18, 20, 23, 0.8)",
     formBgColor: "rgba(133, 170, 159, 0.1)",
+    userIconColor: "rgba(252, 252, 252, 0.7)",
   },
 
   radii: {
