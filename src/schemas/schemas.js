@@ -7,10 +7,7 @@ export const loginSchema = Yup.object().shape({
   email: Yup.string()
     .trim()
     .required("Email is required")
-    .matches(
-      emailPattern,
-      "Please enter a valid email. For example jane@mail.com"
-    ),
+    .matches(emailPattern, "Please enter a valid email"),
 
   password: Yup.string()
     .trim()
@@ -31,10 +28,7 @@ export const registerSchema = Yup.object().shape({
   email: Yup.string()
     .trim()
     .required("Email is required")
-    .matches(
-      emailPattern,
-      "Please enter a valid email! For example jane@mail.com"
-    ),
+    .matches(emailPattern, "Please enter a valid email"),
 
   password: Yup.string()
     .trim()

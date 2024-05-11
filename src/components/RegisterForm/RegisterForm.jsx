@@ -6,7 +6,7 @@ import { PasswordButton } from "../PasswordButton/PasswordButton";
 import { useVisiblePassword } from "../../hooks/useVisiblePassword";
 import { FormMessage } from "../FormMessage/FormMessage";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ $register }) => {
   const {
     register,
     handleSubmit,
@@ -23,7 +23,7 @@ export const RegisterForm = () => {
   return (
     <v.FormWrapper>
       <v.Title>Register</v.Title>
-      <v.SubTitle>
+      <v.SubTitle $register={$register}>
         To start using our services, please fill out the registration form
         below. All fields are mandatory:
       </v.SubTitle>
@@ -36,7 +36,11 @@ export const RegisterForm = () => {
               type="text"
               placeholder="Name"
               className={
-                dirtyFields.name ? (errors.name ? "error" : "valid") : ""
+                dirtyFields.name || errors.name
+                  ? errors.name
+                    ? "error"
+                    : "valid"
+                  : ""
               }
             />
             {console.log(errors.name)}
@@ -53,7 +57,11 @@ export const RegisterForm = () => {
               type="text"
               placeholder="Email"
               className={
-                dirtyFields.email ? (errors.email ? "error" : "valid") : ""
+                dirtyFields.email || errors.email
+                  ? errors.email
+                    ? "error"
+                    : "valid"
+                  : ""
               }
             />
             {(dirtyFields.email || errors.email) && (
@@ -69,7 +77,7 @@ export const RegisterForm = () => {
               type={isVisiblePassword ? "text" : "password"}
               placeholder="Password"
               className={
-                dirtyFields.password
+                dirtyFields.password || errors.password
                   ? errors.password
                     ? "error"
                     : "valid"

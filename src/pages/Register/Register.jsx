@@ -6,7 +6,7 @@ const Register = () => {
   return (
     <v.CommonContainer>
       <ImageBackground $register={true} />
-      <RegisterForm />
+      <RegisterForm $register={true} />
     </v.CommonContainer>
   );
 };

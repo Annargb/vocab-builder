@@ -34,7 +34,11 @@ export const LoginForm = () => {
               type="text"
               placeholder="Email"
               className={
-                dirtyFields.email ? (errors.email ? "error" : "valid") : ""
+                dirtyFields.email || errors.email
+                  ? errors.email
+                    ? "error"
+                    : "valid"
+                  : ""
               }
             />
             {(dirtyFields.email || errors.email) && (
@@ -50,7 +54,7 @@ export const LoginForm = () => {
               type={isVisiblePassword ? "text" : "password"}
               placeholder="Password"
               className={
-                dirtyFields.password
+                dirtyFields.password || errors.password
                   ? errors.password
                     ? "error"
                     : "valid"

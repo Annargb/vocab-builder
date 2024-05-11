@@ -43,11 +43,22 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.p`
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: ${(p) => p.theme.colors.textColor};
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: ${({ $register }) => {
+      switch ($register) {
+        case true:
+          return "16px";
+        default:
+          return "40px";
+      }
+    }};
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
