@@ -1,16 +1,16 @@
-import{u as R,j as re,R as K,g as yr,L as gr,i as Qe,r as xr}from"./index-2e5ded65.js";const br="/vocab-builder/assets/homebg-mobile-1x-9d83dd05.png",vr="/vocab-builder/assets/homebg-mobile-2x-febfa171.png",wr="/vocab-builder/assets/homebg-desktop-1x-ffc1ff6b.png",_r="/vocab-builder/assets/homebg-desktop-2x-4c662930.png",Fr=R.div`
+import{a as R,j as re,R as K,g as yr,L as gr,i as Qe,b as xr}from"./index-071ee475.js";const br="/vocab-builder/assets/homebg-mobile-1x-9d83dd05.png",vr="/vocab-builder/assets/homebg-mobile-2x-febfa171.png",wr="/vocab-builder/assets/homebg-desktop-1x-ffc1ff6b.png",_r="/vocab-builder/assets/homebg-desktop-2x-4c662930.png",Fr=R.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* margin-bottom: 8px; */
+  margin-bottom: 8px;
 
-  @media screen and (max-width: 767px) {
+  /* @media screen and (max-width: 767px) {
     display: ${({$register:t})=>{switch(t){case!0:return"block";default:return"flex"}}};
 
     margin-bottom: ${({$register:t})=>{switch(t){case!0:return"8px";default:return"43px"}}};
-  }
+  } */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -36,7 +36,7 @@ import{u as R,j as re,R as K,g as yr,L as gr,i as Qe,r as xr}from"./index-2e5ded
     background-image: image-set(url(${wr}) 1x, url(${_r}) 2x);
   }
 `,Er=R.p`
-  /* margin-bottom: 35px; */
+  margin-bottom: 35px;
   font-weight: 400;
   font-size: 14px;
   color: ${t=>t.theme.colors.textColor};
@@ -46,7 +46,7 @@ import{u as R,j as re,R as K,g as yr,L as gr,i as Qe,r as xr}from"./index-2e5ded
   }
 
   @media screen and (min-width: 768px) {
-    /* margin-bottom: 0; */
+    margin-bottom: 0;
     font-size: 16px;
     line-height: 1.5;
   }
