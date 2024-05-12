@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const UserWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
 
   @media screen and (min-width: 768px) {
@@ -12,6 +11,14 @@ export const UserWrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     gap: 10px;
+  }
+
+  &.mobileMenu {
+    margin-bottom: 166px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 170px;
+    }
   }
 `;
 
@@ -24,6 +31,11 @@ export const UserName = styled.p`
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
+  }
+
+  &.mobileMenu {
+    line-height: 1;
+    color: ${(p) => p.theme.colors.white};
   }
 `;
 
@@ -40,6 +52,10 @@ export const IconContainer = styled.div`
     width: 48px;
     height: 48px;
   }
+
+  &.mobileMenu {
+    background-color: ${(p) => p.theme.colors.white};
+  }
 `;
 
 export const UserIcon = styled.svg`
@@ -50,5 +66,9 @@ export const UserIcon = styled.svg`
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
+  }
+
+  &.mobileMenu {
+    fill: ${(p) => p.theme.colors.mainGreen};
   }
 `;

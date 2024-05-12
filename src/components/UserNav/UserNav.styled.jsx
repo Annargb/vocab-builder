@@ -3,10 +3,6 @@ import styled from "styled-components";
 
 export const NavWrapper = styled.nav`
   display: none;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 28px; */
 
   &.header {
     @media screen and (min-width: 1440px) {
@@ -15,6 +11,14 @@ export const NavWrapper = styled.nav`
       align-items: center;
       gap: 28px;
     }
+  }
+
+  &.mobileMenu {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 28px;
+    margin-bottom: 28px;
   }
 `;
 
@@ -36,5 +40,19 @@ export const NavItem = styled(NavLink)`
     border-radius: 15px;
     color: ${(p) => p.theme.colors.white};
     background-color: ${(p) => p.theme.colors.mainGreen};
+  }
+
+  &.mobileMenu {
+    color: ${(p) => p.theme.colors.white};
+
+    &:hover,
+    &:focus {
+      color: ${(p) => p.theme.colors.black};
+    }
+
+    &.active {
+      color: ${(p) => p.theme.colors.black};
+      background-color: ${(p) => p.theme.colors.white};
+    }
   }
 `;

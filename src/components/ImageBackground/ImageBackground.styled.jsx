@@ -12,26 +12,6 @@ export const Wrapper = styled.div`
   gap: 16px;
   margin-bottom: 8px;
 
-  /* @media screen and (max-width: 767px) {
-    display: ${({ $register }) => {
-    switch ($register) {
-      case true:
-        return "block";
-      default:
-        return "flex";
-    }
-  }};
-
-    margin-bottom: ${({ $register }) => {
-    switch ($register) {
-      case true:
-        return "8px";
-      default:
-        return "43px";
-    }
-  }};
-  } */
-
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }
