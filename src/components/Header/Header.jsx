@@ -1,4 +1,3 @@
-// import { NavLink } from "react-router-dom";
 import * as v from "./Header.styled";
 import icons from "../../images/icons.svg";
 import { useSelector } from "react-redux";
@@ -7,22 +6,24 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { UserBar } from "../UserBar/UserBar";
 import { LogOutButton } from "../LogOutButton/LogOutButton";
 import { UserNav } from "../UserNav/UserNav";
-import { useState } from "react";
+// import { useState } from "react";
 import { CommonModal } from "../CommonModal/CommonModal";
+import { useModalState } from "../../hooks/useModalState";
 
 export const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { isModalOpen, openModal, closeModal } = useModalState();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.style.overflow = "hidden";
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  //   document.body.style.overflow = "hidden";
+  // };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = "";
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  //   document.body.style.overflow = "";
+  // };
 
   return (
     <v.Header>

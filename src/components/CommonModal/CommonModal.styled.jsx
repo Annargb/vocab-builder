@@ -48,9 +48,9 @@ export const CustomModal = styled(Modal)`
     right: 0;
     width: 185px;
     height: 100%;
-    /* min-height: 100vh; */
-    height: 812px;
-    /* max-height: 812px; */
+    min-height: 100vh;
+    /* height: 812px; */
+    max-height: 812px;
     padding: 16px;
     background-repeat: no-repeat;
     background-image: image-set(url(${mob_1x}) 1x, url(${mob_2x}) 2x);
