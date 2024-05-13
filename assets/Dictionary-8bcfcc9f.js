@@ -1,0 +1,1 @@
+import{u as a,b as r,f as e,j as t}from"./index-53544f81.js";import{D as o}from"./Dashboard-acb3d593.js";const p=()=>{const s=a();return r.useEffect(()=>{s(e())},[s]),t.jsx("div",{children:t.jsx(o,{})})};export{p as default};
