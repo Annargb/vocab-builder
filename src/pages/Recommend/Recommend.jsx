@@ -1,5 +1,11 @@
+import { Dashboard } from "../../components/Dashboard/Dashboard";
+
 const Recommend = () => {
-  return <div>Recommend</div>;
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
 };
 
 export default Recommend;

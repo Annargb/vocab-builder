@@ -2,8 +2,11 @@ export const selectStyles = {
   option: (baseStyles, { isFocused, isSelected }) => {
     return {
       ...baseStyles,
+      fontWeight: "500",
+      fontSize: "16px",
+      lineHeight: "1.5",
       background: "#fff",
-      color: isFocused || isSelected ? "#85aa9f" : "rgba(18, 20, 23, 0.5)",
+      color: isFocused || isSelected ? "#85aa9f" : "#121417",
       textwrap: "nowrap",
       cursor: "pointer",
       padding: "0",
@@ -26,6 +29,10 @@ export const selectStyles = {
       },
       "&:focus": {
         borderColor: "#85aa9f",
+      },
+
+      "@media (min-width: 768px)": {
+        width: "164px",
       },
     };
   },
@@ -61,8 +68,11 @@ export const selectStyles = {
       margin: "8px 0 0 0",
       boxShadow: "0 4px 47px 0 rgba(18, 20, 23, 0.08)",
       cursor: "pointer",
-      // paddingRight: "6px",
       padding: "12px 6px 12px 0",
+
+      "@media (min-width: 768px)": {
+        maxWidth: "164px",
+      },
     };
   },
 
@@ -81,14 +91,16 @@ export const selectStyles = {
       "::-webkit-scrollbar": {
         width: "8px",
       },
-      //дорожка
       "::-webkit-scrollbar-track": {
         background: "transparent",
       },
-      //бегунок
       "::-webkit-scrollbar-thumb": {
         background: "#f8f8f8",
         borderRadius: "12px",
+      },
+
+      "@media (min-width: 768px)": {
+        maxWidth: "164px",
       },
     };
   },

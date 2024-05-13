@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSelectOptions } from "./dictionaryOperations";
+import { fetchSelectOptions, fetchTotalCount } from "./dictionaryOperations";
 
 const initialState = {
   selectOptions: [],
+  totalCount: 0,
   isLoading: false,
   error: null,
 };
@@ -34,7 +35,14 @@ export const dictionarySlice = createSlice({
         });
         state.selectOptions = newArr;
       })
-      .addCase(fetchSelectOptions.rejected, handleRejected);
+      .addCase(fetchSelectOptions.rejected, handleRejected)
+      .addCase(fetchTotalCount.pending, handlePending)
+      .addCase(fetchTotalCount.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.totalCount = action.payload.totalCount;
+      })
+      .addCase(fetchTotalCount.rejected, handleRejected);
   },
 });
 

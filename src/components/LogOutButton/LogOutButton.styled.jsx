@@ -18,10 +18,6 @@ export const LogOutBtn = styled.button`
   gap: 6px;
   width: 81px;
   height: 24px;
-  /* font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: ${(p) => p.theme.colors.black}; */
 
   &.header {
     display: none;
