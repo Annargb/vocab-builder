@@ -37,7 +37,7 @@ export const logInUser = createAsyncThunk(
 
       toast.success("Log in is successful");
 
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -50,10 +50,9 @@ export const logOutUser = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.post("/users/signout");
-      console.log(response.data);
+      // const response = await axios.post("/users/signout");
+      await axios.post("/users/signout");
       clearAuthHeader();
-
       toast.success("Log out successful");
     } catch (error) {
       toast.error(error.response.data.message);

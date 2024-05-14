@@ -7,7 +7,6 @@ export const fetchSelectOptions = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("words/categories");
-      console.log(response.data);
       return response.data;
     } catch (error) {
       toast.error("Oops, something went wrong! Try again later.");
@@ -21,7 +20,6 @@ export const fetchTotalCount = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("words/statistics");
-      console.log(response.data);
       return response.data;
     } catch (error) {
       toast.error("Oops, something went wrong! Try again later.");

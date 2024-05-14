@@ -5,7 +5,6 @@ export const FormWrapper = styled.div`
   position: absolute;
   right: 0;
   width: 100%;
-  /* height: 549px; */
   padding: 32px 16px 57px 16px;
   border-radius: 25px 25px 0 0;
   background-color: ${(p) => p.theme.colors.formBgColor};
@@ -17,7 +16,6 @@ export const FormWrapper = styled.div`
   @media screen and (min-width: 768px) {
     position: static;
     width: 627px;
-    /* height: 591px; */
     padding: 48px 64px;
     border-radius: 30px;
   }
