@@ -1,0 +1,1 @@
+import{u as r,b as a,f as o,j as t}from"./index-02b5c493.js";import{D as e}from"./Dashboard-0f8c7e04.js";import"./index.esm-41ea0b5e.js";const f=()=>{const s=r();return a.useEffect(()=>{s(o())},[s]),t.jsx("div",{children:t.jsx(e,{})})};export{f as default};
