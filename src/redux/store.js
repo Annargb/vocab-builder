@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 import { authReducer } from "./auth/authSlice";
 import { dictionaryReducer } from "./dictionary/dictionarySlice";
-// import { recommendReducer } from "./recommend/recommendSlice";
+import { recommendReducer } from "./recommend/recommendSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -23,7 +23,7 @@ const authPersistConfig = {
 export const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   dictionary: dictionaryReducer,
-  // recommend: recommendReducer,
+  recommend: recommendReducer,
 });
 
 export const store = configureStore({

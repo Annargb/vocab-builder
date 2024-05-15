@@ -34,6 +34,10 @@ export const AddWordBtn = styled.button`
   &:hover ${CommonIcon}, &:focus ${CommonIcon} {
     fill: ${(p) => p.theme.colors.black};
   }
+
+  &.recommend {
+    display: none;
+  }
 `;
 
 export const TrainLink = styled(Link)`

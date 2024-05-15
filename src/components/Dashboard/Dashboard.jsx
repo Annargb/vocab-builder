@@ -2,12 +2,12 @@ import { AddWordBtn } from "../AddWordBtn/AddWordBtn";
 import { Filters } from "../Filters/Filters";
 import { Statistics } from "../Statistics/Statistics";
 
-export const Dashboard = () => {
+export const Dashboard = ({ className }) => {
   return (
     <div>
       <Filters />
       <Statistics />
-      <AddWordBtn />
+      <AddWordBtn className={className} />
     </div>
   );
 };

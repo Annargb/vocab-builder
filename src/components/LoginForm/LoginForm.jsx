@@ -20,7 +20,6 @@ export const LoginForm = () => {
     resolver: yupResolver(loginSchema),
   });
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(logInUser(data));
   };
 

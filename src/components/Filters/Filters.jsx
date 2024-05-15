@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { useForm } from "react-hook-form";
 import { selectOptions } from "../../redux/dictionary/dictionarySelectors";
@@ -7,6 +7,12 @@ import { selectStyles } from "../../styles/selectStyles";
 import debounce from "debounce";
 import icons from "../../images/icons.svg";
 import * as v from "./Filters.styled";
+import {
+  setCategory,
+  setIsIrregular,
+  setKeyword,
+} from "../../redux/recommend/recommendSlice";
+import { fetchRecommendedWords } from "../../redux/recommend/recommendOperations";
 
 export const Filters = () => {
   const options = useSelector(selectOptions);
@@ -14,19 +20,28 @@ export const Filters = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [verbType, setVerbType] = useState(null);
 
+  const dispatch = useDispatch();
+
   const handleSelectChange = (selectedOption) => {
+    dispatch(setCategory(selectedOption ? selectedOption.value : ""));
     setSelectedOption(selectedOption);
     if (selectedOption && selectedOption.value !== "verb") {
       setVerbType(null);
+      dispatch(setIsIrregular(false));
+      dispatch(fetchRecommendedWords());
     }
   };
 
   const handleVerbTypeChange = (event) => {
     setVerbType(event.target.value);
+    dispatch(setIsIrregular(event.target.value === "irregular"));
+    dispatch(fetchRecommendedWords());
   };
 
   const debouncedSearch = debounce((value) => {
     console.log("Searching for:", value);
+    dispatch(setKeyword(value));
+    dispatch(fetchRecommendedWords());
   }, 300);
 
   const handleInputChange = (e) => {

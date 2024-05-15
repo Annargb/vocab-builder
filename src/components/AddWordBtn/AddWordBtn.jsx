@@ -1,10 +1,10 @@
 import icons from "../../images/icons.svg";
 import * as v from "./AddWordBtn.styled";
 
-export const AddWordBtn = () => {
+export const AddWordBtn = ({ className }) => {
   return (
     <v.BtnLinkContainer>
-      <v.AddWordBtn type="button">
+      <v.AddWordBtn type="button" className={className}>
         <v.Text>Add word</v.Text>
         <v.CommonIcon>
           <use href={`${icons}#plus`} />
