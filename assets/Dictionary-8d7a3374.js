@@ -1,0 +1,1 @@
+import{u as a,b as r,f as o,c as t,j as e,s as c,e as i,h as f}from"./index-f43bf7c2.js";import{D as h}from"./Dashboard-9ffac195.js";const d=()=>{const s=a();return r.useEffect(()=>{s(o()),s(t())},[s]),e.jsx("div",{children:e.jsx(h,{fetch:t,setCategory:c,setIsIrregular:i,setKeyword:f})})};export{d as default};
