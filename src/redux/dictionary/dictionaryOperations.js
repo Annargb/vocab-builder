@@ -27,3 +27,31 @@ export const fetchTotalCount = createAsyncThunk(
     }
   }
 );
+
+export const fetchOwnWords = createAsyncThunk(
+  "recommend/ownWords",
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const { keyword, category, isIrregular } =
+        state.dictionary.dictionaryFilter;
+      const { page } = state.dictionary;
+
+      const queryParams = new URLSearchParams();
+
+      keyword && queryParams.set("keyword", keyword);
+      category && queryParams.set("category", encodeURIComponent(category));
+      page && queryParams.set("page", page);
+      category === "verb" &&
+        isIrregular !== undefined &&
+        queryParams.set("isIrregular", isIrregular);
+
+      // console.log(queryParams);
+      const response = await axios.get(`words/own?${queryParams}`);
+      return response.data;
+    } catch (error) {
+      toast.error("Oops, something went wrong! Try again later.");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

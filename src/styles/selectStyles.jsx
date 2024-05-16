@@ -14,13 +14,15 @@ export const selectStyles = {
     };
   },
 
-  control: (baseStyles) => {
+  control: (baseStyles, { selectProps }) => {
     return {
       ...baseStyles,
       borderRadius: "15px",
       width: "343px",
       height: "48px",
-      border: "1px solid rgba(18, 20, 23, 0.1)",
+      border: selectProps.menuIsOpen
+        ? "1px solid #85aa9f"
+        : "1px solid rgba(18, 20, 23, 0.1)",
       boxShadow: "none",
       color: "#121417",
       transition: "border-color 250ms linear",
@@ -142,12 +144,12 @@ export const selectStyles = {
   input: (baseStyles) => {
     return {
       ...baseStyles,
-      color: "#121417",
       fontWeight: "500",
       fontSize: "16px",
       lineHeight: "1.5",
       padding: "0",
       margin: "0",
+      color: "#121417",
     };
   },
 };

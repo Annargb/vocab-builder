@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -66,4 +66,35 @@ export const SearchIcon = styled.svg`
   right: 24px;
   width: 20px;
   height: 20px;
+`;
+
+///
+export const RadioInput = styled.input`
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+`;
+
+export const RadioContainer = styled.div`
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const CustomRadio = styled.span`
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: ${(p) => p.theme.colors.radioColor};
+`;
+
+export const RadioLabel = styled.label`
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: ${(p) => p.theme.colors.black};
 `;

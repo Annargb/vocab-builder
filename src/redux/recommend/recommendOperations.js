@@ -7,12 +7,21 @@ export const fetchRecommendedWords = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
-      const params = {
-        ...state.recommend.recommendFilter,
-        page: state.recommend.page,
-      };
-      console.log(params);
-      const response = await axios.get("words/all", params);
+      const { keyword, category, isIrregular } =
+        state.recommend.recommendFilter;
+      const { page } = state.recommend;
+
+      const queryParams = new URLSearchParams();
+
+      keyword && queryParams.set("keyword", keyword);
+      category && queryParams.set("category", encodeURIComponent(category));
+      page && queryParams.set("page", page);
+      category === "verb" &&
+        isIrregular !== undefined &&
+        queryParams.set("isIrregular", isIrregular);
+
+      // console.log(queryParams);
+      const response = await axios.get(`words/all?${queryParams}`);
       return response.data;
     } catch (error) {
       toast.error("Oops, something went wrong! Try again later.");

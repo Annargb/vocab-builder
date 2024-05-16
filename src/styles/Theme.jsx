@@ -9,6 +9,7 @@ export const theme = {
     errorColor: "#d80027",
     successColor: "#3cbf61",
     borderColor: "rgba(18, 20, 23, 0.1)",
+    radioColor: "rgba(18, 20, 23, 0.2)",
     linkColor: "rgba(18, 20, 23, 0.5)",
     textColor: "rgba(18, 20, 23, 0.8)",
     formBgColor: "rgba(133, 170, 159, 0.1)",

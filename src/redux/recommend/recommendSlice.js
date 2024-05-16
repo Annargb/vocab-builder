@@ -1,6 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchRecommendedWords } from "./recommendOperations";
 
+const handlePending = (state) => {
+  state.error = null;
+  state.isLoading = true;
+};
+const handleRejected = (state, action) => {
+  state.error = action.payload;
+  state.isLoading = false;
+};
+
 const recommendFilter = {
   keyword: "",
   category: "",
@@ -16,27 +25,21 @@ const initialState = {
   error: null,
 };
 
-const handlePending = (state) => {
-  state.error = null;
-  state.isLoading = true;
-};
-const handleRejected = (state, action) => {
-  state.error = action.payload;
-  state.isLoading = false;
-};
-
 export const recommendSlice = createSlice({
   name: "recommend",
   initialState,
   reducers: {
     setKeyword: (state, action) => {
       state.recommendFilter.keyword = action.payload;
+      state.page = 1;
     },
     setCategory: (state, action) => {
       state.recommendFilter.category = action.payload;
+      state.page = 1;
     },
     setIsIrregular: (state, action) => {
       state.recommendFilter.isIrregular = action.payload;
+      state.page = 1;
     },
   },
   extraReducers: (builder) => {

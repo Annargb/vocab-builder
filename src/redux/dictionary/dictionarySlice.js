@@ -1,8 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSelectOptions, fetchTotalCount } from "./dictionaryOperations";
+import {
+  fetchSelectOptions,
+  fetchTotalCount,
+  fetchOwnWords,
+} from "./dictionaryOperations";
+
+const dictionaryFilter = {
+  keyword: "",
+  category: "",
+  isIrregular: false,
+};
 
 const initialState = {
   selectOptions: [],
+  dictionaryFilter,
+  ownWords: [],
+  page: 1,
+  totalPages: 1,
   totalCount: 0,
   isLoading: false,
   error: null,
@@ -20,7 +34,17 @@ const handleRejected = (state, action) => {
 export const dictionarySlice = createSlice({
   name: "dictionary",
   initialState,
-  reducers: {},
+  reducers: {
+    setKeyword: (state, action) => {
+      state.dictionaryFilter.keyword = action.payload;
+    },
+    setCategory: (state, action) => {
+      state.dictionaryFilter.category = action.payload;
+    },
+    setIsIrregular: (state, action) => {
+      state.dictionaryFilter.isIrregular = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSelectOptions.pending, handlePending)
@@ -42,8 +66,17 @@ export const dictionarySlice = createSlice({
         state.error = null;
         state.totalCount = action.payload.totalCount;
       })
-      .addCase(fetchTotalCount.rejected, handleRejected);
+      .addCase(fetchTotalCount.rejected, handleRejected)
+      .addCase(fetchOwnWords.pending, handlePending)
+      .addCase(fetchOwnWords.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownWords = action.payload.results;
+        state.totalPages = action.payload.totalPages;
+      });
   },
 });
 
 export const dictionaryReducer = dictionarySlice.reducer;
+export const { setKeyword, setCategory, setIsIrregular } =
+  dictionarySlice.actions;
