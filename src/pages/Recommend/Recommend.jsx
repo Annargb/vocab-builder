@@ -9,6 +9,8 @@ import {
 } from "../../redux/recommend/recommendSlice";
 import { WordsTable } from "../../components/WordsTable/WordsTable";
 import { selectRecommendedWords } from "../../redux/recommend/recommendSelectors";
+import { AddToDictionaryBtn } from "../../components/AddToDictionaryBtn/AddToDictionaryBtn";
+import { TableHeader } from "../../components/TableHeader/TableHeader";
 
 const Recommend = () => {
   const dispatch = useDispatch();
@@ -20,11 +22,11 @@ const Recommend = () => {
 
   const columnsData = [
     {
-      Header: "Word",
+      Header: () => <TableHeader text={"word"} />,
       accessor: "en",
     },
     {
-      Header: "Translation",
+      Header: () => <TableHeader text={"translation"} />,
       accessor: "ua",
     },
     {
@@ -33,25 +35,9 @@ const Recommend = () => {
     },
     {
       accessor: "_id",
-      Cell: ({ row }) => (
-        <button onClick={() => console.log(row.original._id)}>
-          Додати слово
-        </button>
-      ),
+      Cell: ({ row }) => <AddToDictionaryBtn id={row.original._id} />,
     },
   ];
-
-  // const tableData = [
-  //   {
-  //     name: "John Doe",
-  //     age: 30,
-  //   },
-  //   {
-  //     name: "Jane Smith",
-  //     age: 25,
-  //   },
-  //   // Додаткові рядки
-  // ];
 
   return (
     <>

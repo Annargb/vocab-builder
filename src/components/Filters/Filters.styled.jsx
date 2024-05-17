@@ -4,9 +4,11 @@ export const InputWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  /* margin-bottom: 14px; */
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    align-items: center;
   }
 `;
 
@@ -68,33 +70,56 @@ export const SearchIcon = styled.svg`
   height: 20px;
 `;
 
-///
-export const RadioInput = styled.input`
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-`;
-
-export const RadioContainer = styled.div`
-  /* display: inline-block; */
+export const RadioCointainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 `;
 
-export const CustomRadio = styled.span`
-  display: inline-block;
+export const RadioButton = styled.input`
+  flex-shrink: 0;
+  position: relative;
+  appearance: none;
   width: 18px;
   height: 18px;
   border: 2px solid;
-  border-radius: 10px;
+  border-radius: 50%;
   border-color: ${(p) => p.theme.colors.radioColor};
+  outline: none;
+  cursor: pointer;
+  transition: border-color 250ms ${(p) => p.theme.transition};
+
+  &:checked {
+    border-color: ${(p) => p.theme.colors.mainGreen};
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: ${(p) => p.theme.colors.mainGreen};
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: ${(p) => p.theme.colors.mainGreen};
+  }
 `;
 
 export const RadioLabel = styled.label`
-  display: flex;
-  align-items: center;
   font-weight: 400;
   font-size: 14px;
   color: ${(p) => p.theme.colors.black};
+  cursor: pointer;
+`;
+
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: self-end;
+  gap: 8px;
 `;

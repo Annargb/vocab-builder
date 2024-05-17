@@ -46,7 +46,6 @@ export const fetchOwnWords = createAsyncThunk(
         isIrregular !== undefined &&
         queryParams.set("isIrregular", isIrregular);
 
-      // console.log(queryParams);
       const response = await axios.get(`words/own?${queryParams}`);
       return response.data;
     } catch (error) {

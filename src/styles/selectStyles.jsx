@@ -137,7 +137,9 @@ export const selectStyles = {
       display: "flex",
       alignItems: "center",
       height: "48px",
-      width: "100%",
+      "@media (max-width: 767px)": {
+        width: "100%",
+      },
     };
   },
 

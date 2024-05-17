@@ -1,6 +1,7 @@
 import { AddWordBtn } from "../AddWordBtn/AddWordBtn";
 import { Filters } from "../Filters/Filters";
 import { Statistics } from "../Statistics/Statistics";
+import * as v from "./Dashboard.styled";
 
 export const Dashboard = ({
   className,
@@ -10,15 +11,17 @@ export const Dashboard = ({
   setIsIrregular,
 }) => {
   return (
-    <div>
+    <v.DashboardWrapper>
       <Filters
         fetch={fetch}
         setCategory={setCategory}
         setKeyword={setKeyword}
         setIsIrregular={setIsIrregular}
       />
-      <Statistics />
-      <AddWordBtn className={className} />
-    </div>
+      <v.StatsBtnContainer>
+        <Statistics />
+        <AddWordBtn className={className} />
+      </v.StatsBtnContainer>
+    </v.DashboardWrapper>
   );
 };

@@ -6,6 +6,7 @@ export const theme = {
     white: "#fcfcfc",
     snowWhite: "#fff",
     whiteBg: "#f8f8f8",
+    tableBorder: "#dbdbdb",
     errorColor: "#d80027",
     successColor: "#3cbf61",
     borderColor: "rgba(18, 20, 23, 0.1)",
