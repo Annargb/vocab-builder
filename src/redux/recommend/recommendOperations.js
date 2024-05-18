@@ -29,3 +29,18 @@ export const fetchRecommendedWords = createAsyncThunk(
     }
   }
 );
+
+export const addRecommendedWord = createAsyncThunk(
+  "recommend/add",
+  async (id, thunkApi) => {
+    try {
+      const response = await axios.post(`words/add/${id}`);
+      toast.success("The word has been successfully added to your dictionary.");
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);

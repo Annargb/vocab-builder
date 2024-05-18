@@ -69,7 +69,7 @@ export const StyledTh = styled.th`
 `;
 
 export const StyledTd = styled.td`
-  padding: 8px;
+  padding: 16px 8px;
   font-weight: 500;
   font-size: 14px;
   text-transform: capitalize;
@@ -120,6 +120,12 @@ export const StyledTr = styled.tr`
   @media screen and (max-width: 767px) {
     &:last-child > ${StyledTd} {
       border-bottom: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    & > ${StyledTd}:last-child {
+      padding: 14px;
     }
   }
 `;

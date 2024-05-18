@@ -10,6 +10,10 @@ export const InputWrapper = styled.form`
     flex-direction: row;
     align-items: center;
   }
+
+  &.dictionary {
+    display: none;
+  }
 `;
 
 export const Label = styled.label`

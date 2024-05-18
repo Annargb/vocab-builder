@@ -17,6 +17,7 @@ export const Dashboard = ({
         setCategory={setCategory}
         setKeyword={setKeyword}
         setIsIrregular={setIsIrregular}
+        className={className}
       />
       <v.StatsBtnContainer>
         <Statistics />

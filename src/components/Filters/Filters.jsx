@@ -7,7 +7,13 @@ import debounce from "debounce";
 import icons from "../../images/icons.svg";
 import * as v from "./Filters.styled";
 
-export const Filters = ({ fetch, setCategory, setKeyword, setIsIrregular }) => {
+export const Filters = ({
+  fetch,
+  setCategory,
+  setKeyword,
+  setIsIrregular,
+  className,
+}) => {
   const options = useSelector(selectOptions);
   const [selectedOption, setSelectedOption] = useState(null);
   const [verbType, setVerbType] = useState("regular");
@@ -37,15 +43,16 @@ export const Filters = ({ fetch, setCategory, setKeyword, setIsIrregular }) => {
 
   const handleInputChange = (e) => {
     const trimmedValue = e.target.value.trim();
-    if (trimmedValue) {
-      debouncedSearch(trimmedValue);
-    }
+    // if (trimmedValue) {
+    debouncedSearch(trimmedValue);
+    // }
 
     // debouncedSearch(e.target.value);
   };
 
   return (
     <v.InputWrapper
+      className={className}
       $notVerb={selectedOption && selectedOption.value !== "verb"}
     >
       <v.Label>

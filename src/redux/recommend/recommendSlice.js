@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRecommendedWords } from "./recommendOperations";
+import {
+  fetchRecommendedWords,
+  addRecommendedWord,
+} from "./recommendOperations";
 
 const handlePending = (state) => {
   state.error = null;
@@ -41,6 +44,10 @@ export const recommendSlice = createSlice({
       state.recommendFilter.isIrregular = action.payload;
       state.page = 1;
     },
+    resetFilters: (state) => {
+      state.recommendFilter = recommendFilter;
+      state.page = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -51,10 +58,16 @@ export const recommendSlice = createSlice({
         state.recommendedWords = action.payload.results;
         state.totalPages = action.payload.totalPages;
       })
-      .addCase(fetchRecommendedWords.rejected, handleRejected);
+      .addCase(fetchRecommendedWords.rejected, handleRejected)
+      .addCase(addRecommendedWord.pending, handlePending)
+      .addCase(addRecommendedWord.fulfilled, (state) => {
+         state.isLoading = false;
+         state.error = null;
+      })
+      .addCase(addRecommendedWord.rejected, handleRejected);
   },
 });
 
 export const recommendReducer = recommendSlice.reducer;
-export const { setKeyword, setCategory, setIsIrregular } =
+export const { setKeyword, setCategory, setIsIrregular, resetFilters } =
   recommendSlice.actions;

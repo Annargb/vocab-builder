@@ -8,16 +8,23 @@ import {
   setKeyword,
 } from "../../redux/recommend/recommendSlice";
 import { WordsTable } from "../../components/WordsTable/WordsTable";
-import { selectRecommendedWords } from "../../redux/recommend/recommendSelectors";
+import {
+  selectRecommendFilter,
+  selectRecommendedWords,
+} from "../../redux/recommend/recommendSelectors";
 import { AddToDictionaryBtn } from "../../components/AddToDictionaryBtn/AddToDictionaryBtn";
 import { TableHeader } from "../../components/TableHeader/TableHeader";
+import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
+import { fetchTotalCount } from "../../redux/dictionary/dictionaryOperations";
 
 const Recommend = () => {
   const dispatch = useDispatch();
   const recommendedWords = useSelector(selectRecommendedWords);
+  const filters = useSelector(selectRecommendFilter);
 
   useEffect(() => {
     dispatch(fetchRecommendedWords());
+    dispatch(fetchTotalCount());
   }, [dispatch]);
 
   const columnsData = [
@@ -48,7 +55,17 @@ const Recommend = () => {
         setIsIrregular={setIsIrregular}
         setKeyword={setKeyword}
       />
-      <WordsTable columnsData={columnsData} tableData={recommendedWords} />
+      {recommendedWords.length !== 0 && (
+        <WordsTable columnsData={columnsData} tableData={recommendedWords} />
+      )}
+
+      {(filters.keyword || filters.category) &&
+        recommendedWords.length === 0 && (
+          <NotFoundBlock
+            title="Sorry, we did not find words in our database according to your request."
+            text="Try searching for other words or add the desired word to your dictionary for further study."
+          />
+        )}
     </>
   );
 };
