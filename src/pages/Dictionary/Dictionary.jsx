@@ -11,13 +11,19 @@ import {
   setIsIrregular,
   setKeyword,
 } from "../../redux/dictionary/dictionarySlice";
-import { selectOwnWord } from "../../redux/dictionary/dictionarySelectors";
+import {
+  selectDictionaryFilter,
+  selectOwnWord,
+} from "../../redux/dictionary/dictionarySelectors";
 import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
 import { resetFilters } from "../../redux/recommend/recommendSlice";
+import { TableHeader } from "../../components/TableHeader/TableHeader";
+import { WordsTable } from "../../components/WordsTable/WordsTable";
 
 const Dictionary = () => {
   const dispatch = useDispatch();
   const dictionaryWords = useSelector(selectOwnWord);
+  const filters = useSelector(selectDictionaryFilter);
 
   useEffect(() => {
     dispatch(fetchSelectOptions());
@@ -26,15 +32,47 @@ const Dictionary = () => {
     dispatch(fetchTotalCount());
   }, [dispatch]);
 
+  const columnsData = [
+    {
+      Header: () => <TableHeader text={"word"} />,
+      accessor: "en",
+    },
+    {
+      Header: () => <TableHeader text={"translation"} />,
+      accessor: "ua",
+    },
+    {
+      Header: "Category",
+      accessor: "category",
+    },
+    {
+      Header: "Progress",
+      accessor: "progress",
+    },
+    {
+      accessor: "_id",
+      Cell: ({ row }) => (
+        <button onClick={() => console.log(row.original._id)}>...</button>
+      ),
+    },
+  ];
+
   return (
     <div>
-      {dictionaryWords.length !== 0 ? (
-        <Dashboard
-          fetch={fetchOwnWords}
-          setCategory={setCategory}
-          setIsIrregular={setIsIrregular}
-          setKeyword={setKeyword}
-        />
+      {dictionaryWords.length !== 0 || filters.keyword || filters.category ? (
+        <>
+          <Dashboard
+            fetch={fetchOwnWords}
+            setCategory={setCategory}
+            setIsIrregular={setIsIrregular}
+            setKeyword={setKeyword}
+          />
+          <WordsTable
+            columnsData={columnsData}
+            tableData={dictionaryWords}
+            className="dictionary"
+          />
+        </>
       ) : (
         <>
           <Dashboard className="dictionary" />

@@ -48,6 +48,16 @@ export const recommendSlice = createSlice({
       state.recommendFilter = recommendFilter;
       state.page = 1;
     },
+    changeCurrentPage: (state, action) => {
+      console.log(action.payload);
+      state.page = action.payload + 1;
+    },
+    setFirstPage: (state) => {
+      state.page = 1;
+    },
+    setLastPage: (state) => {
+      state.page = state.totalPages;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -61,8 +71,8 @@ export const recommendSlice = createSlice({
       .addCase(fetchRecommendedWords.rejected, handleRejected)
       .addCase(addRecommendedWord.pending, handlePending)
       .addCase(addRecommendedWord.fulfilled, (state) => {
-         state.isLoading = false;
-         state.error = null;
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(addRecommendedWord.rejected, handleRejected);
   },

@@ -16,6 +16,7 @@ import { AddToDictionaryBtn } from "../../components/AddToDictionaryBtn/AddToDic
 import { TableHeader } from "../../components/TableHeader/TableHeader";
 import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
 import { fetchTotalCount } from "../../redux/dictionary/dictionaryOperations";
+// import { WordsPagination } from "../../components/WordsPagination/WordsPagination";
 
 const Recommend = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,10 @@ const Recommend = () => {
         setKeyword={setKeyword}
       />
       {recommendedWords.length !== 0 && (
-        <WordsTable columnsData={columnsData} tableData={recommendedWords} />
+        <>
+          <WordsTable columnsData={columnsData} tableData={recommendedWords} />
+          {/* <WordsPagination /> */}
+        </>
       )}
 
       {(filters.keyword || filters.category) &&

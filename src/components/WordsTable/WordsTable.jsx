@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useTable } from "react-table";
 import * as v from "./WordsTable.styled";
 
-export const WordsTable = ({ columnsData, tableData }) => {
+export const WordsTable = ({ columnsData, tableData, className }) => {
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -19,7 +19,11 @@ export const WordsTable = ({ columnsData, tableData }) => {
               {...headerGroup.getHeaderGroupProps()}
             >
               {headerGroup.headers.map((column) => (
-                <v.StyledThColumn key={column.id} {...column.getHeaderProps()}>
+                <v.StyledThColumn
+                  key={column.id}
+                  {...column.getHeaderProps()}
+                  className={className}
+                >
                   {column.render("Header")}
                 </v.StyledThColumn>
               ))}
@@ -35,6 +39,7 @@ export const WordsTable = ({ columnsData, tableData }) => {
                   <v.StyledTdColumn
                     key={cell.column.id}
                     {...cell.getCellProps()}
+                    className={className}
                   >
                     {cell.render("Cell")}
                   </v.StyledTdColumn>

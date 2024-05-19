@@ -107,10 +107,6 @@ export const StyledTr = styled.tr`
     border-bottom: 1px solid ${(p) => p.theme.colors.tableBorder};
   }
 
-  /* &:not(:last-child) > ${StyledTd} {
-    border-bottom: 1px solid ${(p) => p.theme.colors.tableBorder};
-  } */
-
   @media screen and (min-width: 375px) {
     & > ${StyledTd}:last-child {
       padding: 14px 9px;
@@ -166,11 +162,11 @@ export const StyledThColumn = styled(StyledTh)`
       width: 38px;
     } */
     &:nth-child(2) {
-      padding: 16px 16px 14px 16px;
+      padding: 16px 14px 16px 16px;
     }
 
     &:nth-child(3) {
-      padding: 16px 16px 12px 16px;
+      padding: 16px 12px 16px 16px;
     }
   }
 
@@ -207,6 +203,68 @@ export const StyledThColumn = styled(StyledTh)`
 
     &:nth-child(4) {
       width: 208px;
+    }
+  }
+
+  &.dictionary {
+    &:nth-child(1) {
+      max-width: 82px;
+    }
+
+    &:nth-child(2) {
+      max-width: 116px;
+    }
+
+    &:nth-child(3) {
+      max-width: 95px;
+    }
+
+    &:nth-child(4) {
+      max-width: 50px;
+    }
+
+    @media screen and (min-width: 768px) {
+      &:nth-child(1) {
+        max-width: 160px;
+      }
+
+      &:nth-child(2) {
+        max-width: 169px;
+      }
+
+      &:nth-child(3) {
+        max-width: 151px;
+      }
+
+      &:nth-child(4) {
+        max-width: 122px;
+      }
+
+      &:nth-child(5) {
+        max-width: 66px;
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      &:nth-child(1) {
+        width: 280px;
+      }
+
+      &:nth-child(2) {
+        width: 274px;
+      }
+
+      &:nth-child(3) {
+        width: 260px;
+      }
+
+      &:nth-child(4) {
+        width: 254px;
+      }
+
+      &:nth-child(5) {
+        width: 136px;
+      }
     }
   }
 `;
