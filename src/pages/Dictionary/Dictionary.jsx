@@ -19,6 +19,7 @@ import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
 import { resetFilters } from "../../redux/recommend/recommendSlice";
 import { TableHeader } from "../../components/TableHeader/TableHeader";
 import { WordsTable } from "../../components/WordsTable/WordsTable";
+import { Progress } from "../../components/Progress/Progress";
 
 const Dictionary = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Dictionary = () => {
     {
       Header: "Progress",
       accessor: "progress",
+      Cell: ({ row }) => <Progress progress={row.original.progress} />,
     },
     {
       accessor: "_id",
