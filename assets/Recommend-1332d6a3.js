@@ -1,4 +1,4 @@
-import{a as n,u as i,j as t,i as x,o as p,k as l,c as a,b as u,p as d,q as f,t as g,v as w}from"./index-d91a871e.js";import{D as y,W as j,N as b,T as c}from"./WordsTable-c7b02890.js";const k=e=>e.recommend.recommendFilter,T=e=>e.recommend.recommendedWords,W=n.span`
+import{a as n,u as i,j as t,i as x,o as p,k as l,c as a,b as u,p as d,q as f,t as g,v as w}from"./index-1bafb751.js";import{D as y,W as j,N as b,T as c}from"./WordsTable-11d862df.js";const k=e=>e.recommend.recommendFilter,T=e=>e.recommend.recommendedWords,W=n.span`
   display: none;
 
   @media screen and (min-width: 768px) {
