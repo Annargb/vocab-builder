@@ -1,10 +1,14 @@
 import icons from "../../images/icons.svg";
 import * as v from "./AddWordBtn.styled";
 
-export const AddWordBtn = ({ className }) => {
+export const AddWordBtn = ({ className, openModal }) => {
   return (
     <v.BtnLinkContainer>
-      <v.AddWordBtn type="button" className={className}>
+      <v.AddWordBtn
+        type="button"
+        className={className}
+        onClick={() => openModal()}
+      >
         <v.Text>Add word</v.Text>
         <v.CommonIcon>
           <use href={`${icons}#plus`} />

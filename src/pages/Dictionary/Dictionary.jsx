@@ -20,11 +20,15 @@ import { resetFilters } from "../../redux/recommend/recommendSlice";
 import { TableHeader } from "../../components/TableHeader/TableHeader";
 import { WordsTable } from "../../components/WordsTable/WordsTable";
 import { Progress } from "../../components/Progress/Progress";
+import { useModalState } from "../../hooks/useModalState";
+import { CommonModal } from "../../components/CommonModal/CommonModal";
+import { AddWordForm } from "../../components/AddWordForm/AddWordForm";
 
 const Dictionary = () => {
   const dispatch = useDispatch();
   const dictionaryWords = useSelector(selectOwnWord);
   const filters = useSelector(selectDictionaryFilter);
+  const { isModalOpen, openModal, closeModal } = useModalState();
 
   useEffect(() => {
     dispatch(fetchSelectOptions());
@@ -68,6 +72,7 @@ const Dictionary = () => {
             setCategory={setCategory}
             setIsIrregular={setIsIrregular}
             setKeyword={setKeyword}
+            openModal={openModal}
           />
           <WordsTable
             columnsData={columnsData}
@@ -84,6 +89,13 @@ const Dictionary = () => {
           />
         </>
       )}
+      <CommonModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        className="addWord"
+      >
+        <AddWordForm closeModal={closeModal} />
+      </CommonModal>
     </div>
   );
 };

@@ -7,6 +7,7 @@ export const theme = {
     snowWhite: "#fff",
     whiteBg: "#f8f8f8",
     tableBorder: "#dbdbdb",
+    inputBorder: "#d1d5db",
     errorColor: "#d80027",
     successColor: "#3cbf61",
     borderColor: "rgba(18, 20, 23, 0.1)",
@@ -14,7 +15,10 @@ export const theme = {
     linkColor: "rgba(18, 20, 23, 0.5)",
     textColor: "rgba(18, 20, 23, 0.8)",
     formBgColor: "rgba(133, 170, 159, 0.1)",
+    inputTabletBorder: "rgba(252, 252, 252, 0.3)",
+    btnBorder: "rgba(252, 252, 252, 0.4)",
     userIconColor: "rgba(252, 252, 252, 0.7)",
+    formTextColor: "rgba(252, 252, 252, 0.8)",
   },
 
   radii: {

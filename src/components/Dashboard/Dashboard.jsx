@@ -9,6 +9,7 @@ export const Dashboard = ({
   setCategory,
   setKeyword,
   setIsIrregular,
+  openModal,
 }) => {
   return (
     <v.DashboardWrapper>
@@ -21,7 +22,7 @@ export const Dashboard = ({
       />
       <v.StatsBtnContainer>
         <Statistics />
-        <AddWordBtn className={className} />
+        <AddWordBtn className={className} openModal={openModal} />
       </v.StatsBtnContainer>
     </v.DashboardWrapper>
   );
