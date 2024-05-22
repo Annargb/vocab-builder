@@ -96,8 +96,8 @@ export const AddBtn = styled.button`
     background-color 250ms ${(p) => p.theme.transition},
     color 250ms ${(p) => p.theme.transition};
 
-  &.hover,
-  &.focus {
+  &:hover,
+  &:focus {
     color: ${(p) => p.theme.colors.white};
     background-color: transparent;
   }
@@ -116,8 +116,8 @@ export const CancelBtn = styled(AddBtn)`
   background-color: transparent;
   border-color: ${(p) => p.theme.colors.btnBorder};
 
-  &.hover,
-  &.focus {
+  &:hover,
+  &:focus {
     color: ${(p) => p.theme.colors.black};
     background-color: ${(p) => p.theme.colors.white};
   }
@@ -146,6 +146,7 @@ export const IconTextWrapper = styled.div`
 `;
 
 export const Label = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -155,4 +156,99 @@ export const Label = styled.label`
     align-items: center;
     gap: 32px;
   }
+`;
+///
+
+export const RadioCointainer = styled.div`
+  position: absolute;
+  top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const RadioButton = styled.input`
+  flex-shrink: 0;
+  position: relative;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: ${(p) => p.theme.colors.white};
+  outline: none;
+  cursor: pointer;
+  transition: border-color 250ms ${(p) => p.theme.transition};
+
+  &:checked {
+    border-color: ${(p) => p.theme.colors.white};
+
+    &::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: ${(p) => p.theme.colors.white};
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: ${(p) => p.theme.colors.white};
+  }
+`;
+
+export const RadioLabel = styled.label`
+  font-weight: 400;
+  font-size: 12px;
+  color: ${(p) => p.theme.colors.white};
+  cursor: pointer;
+`;
+
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: self-end;
+  gap: 8px;
+`;
+
+export const SelectInputWrapper = styled.div`
+  position: relative;
+  margin-bottom: 62px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 70px;
+  }
+`;
+
+export const Notation = styled.span`
+  position: absolute;
+  top: 88px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  color: ${(p) => p.theme.colors.formTextColor};
+`;
+
+export const Error = styled.span`
+  position: absolute;
+  bottom: -16px;
+  /* top: -14px; */
+  left: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  color: ${(p) => p.theme.colors.formTextColor};
+
+  &.category {
+    top: -14px;
+    bottom: auto;
+  }
+`;
+
+export const SelectLavel = styled.label`
+  position: relative;
 `;

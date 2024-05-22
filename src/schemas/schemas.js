@@ -42,8 +42,8 @@ export const registerSchema = Yup.object().shape({
 });
 
 export const addWordSchema = Yup.object().shape({
-  category: Yup.string().required("Category is required"),
-
+  category: Yup.string().required("Please select a category"),
+  // isIrregular: Yup.string(),
   ua: Yup.string()
     .trim()
     .required("Ukrainian word is required")

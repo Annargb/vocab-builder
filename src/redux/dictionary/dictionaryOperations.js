@@ -54,3 +54,18 @@ export const fetchOwnWords = createAsyncThunk(
     }
   }
 );
+
+export const createWord = createAsyncThunk(
+  "dictionary/createWord",
+  async (data, thunkAPI) => {
+    try {
+      const response = await axios.post("words/create", data);
+      console.log(response.data);
+      toast.success("A new word has been successfully created.");
+      return response.data;
+    } catch (error) {
+      toast.error("Oops, something went wrong! Try again later.");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

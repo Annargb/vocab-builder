@@ -45,7 +45,6 @@ export const Filters = ({
     const trimmedValue = e.target.value.trim();
     // if (trimmedValue) {
     debouncedSearch(trimmedValue);
-    // }
 
     // debouncedSearch(e.target.value);
   };

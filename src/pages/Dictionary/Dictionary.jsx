@@ -3,8 +3,8 @@ import { Dashboard } from "../../components/Dashboard/Dashboard";
 import { useEffect } from "react";
 import {
   fetchOwnWords,
-  fetchSelectOptions,
-  fetchTotalCount,
+  // fetchSelectOptions,
+  // fetchTotalCount,
 } from "../../redux/dictionary/dictionaryOperations";
 import {
   setCategory,
@@ -13,6 +13,7 @@ import {
 } from "../../redux/dictionary/dictionarySlice";
 import {
   selectDictionaryFilter,
+  // selectIsLoading,
   selectOwnWord,
 } from "../../redux/dictionary/dictionarySelectors";
 import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
@@ -23,18 +24,20 @@ import { Progress } from "../../components/Progress/Progress";
 import { useModalState } from "../../hooks/useModalState";
 import { CommonModal } from "../../components/CommonModal/CommonModal";
 import { AddWordForm } from "../../components/AddWordForm/AddWordForm";
+// import { Loader } from "../../components/Loader/Loader";
 
 const Dictionary = () => {
   const dispatch = useDispatch();
   const dictionaryWords = useSelector(selectOwnWord);
   const filters = useSelector(selectDictionaryFilter);
+  // const isLoading = useSelector(selectIsLoading);
   const { isModalOpen, openModal, closeModal } = useModalState();
 
   useEffect(() => {
-    dispatch(fetchSelectOptions());
+    // dispatch(fetchSelectOptions());
     dispatch(fetchOwnWords());
     dispatch(resetFilters());
-    dispatch(fetchTotalCount());
+    // dispatch(fetchTotalCount());
   }, [dispatch]);
 
   const columnsData = [
@@ -62,8 +65,10 @@ const Dictionary = () => {
       ),
     },
   ];
-
   return (
+    // return isLoading ? (
+    //   <Loader />
+    // ) : (
     <div>
       {dictionaryWords.length !== 0 || filters.keyword || filters.category ? (
         <>

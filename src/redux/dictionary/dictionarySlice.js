@@ -3,6 +3,7 @@ import {
   fetchSelectOptions,
   fetchTotalCount,
   fetchOwnWords,
+  createWord,
 } from "./dictionaryOperations";
 
 const dictionaryFilter = {
@@ -73,7 +74,13 @@ export const dictionarySlice = createSlice({
         state.error = null;
         state.ownWords = action.payload.results;
         state.totalPages = action.payload.totalPages;
-      });
+      })
+      .addCase(createWord.pending, handlePending)
+      .addCase(createWord.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(createWord.rejected, handleRejected);
   },
 });
 

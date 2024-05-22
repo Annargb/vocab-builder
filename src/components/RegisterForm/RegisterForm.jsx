@@ -21,7 +21,6 @@ export const RegisterForm = ({ $register }) => {
     resolver: yupResolver(registerSchema),
   });
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(registerUser(data));
   };
 
