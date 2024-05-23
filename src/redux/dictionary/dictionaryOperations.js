@@ -29,7 +29,7 @@ export const fetchTotalCount = createAsyncThunk(
 );
 
 export const fetchOwnWords = createAsyncThunk(
-  "recommend/ownWords",
+  "dictionary/ownWords",
   async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
@@ -64,7 +64,22 @@ export const createWord = createAsyncThunk(
       toast.success("A new word has been successfully created.");
       return response.data;
     } catch (error) {
-      toast.error("Oops, something went wrong! Try again later.");
+      toast.error(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteWord = createAsyncThunk(
+  "dictionary/deleteWord",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`words/delete/${id}`);
+      toast.success("The word has been successfully deleted.");
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -98,8 +98,7 @@ export const AddBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${(p) => p.theme.colors.white};
-    background-color: transparent;
+    color: ${(p) => p.theme.colors.mainGreen};
   }
 
   @media screen and (min-width: 768px) {

@@ -3,7 +3,7 @@ import { Dashboard } from "../../components/Dashboard/Dashboard";
 import { useEffect } from "react";
 import {
   fetchOwnWords,
-  // fetchSelectOptions,
+  fetchSelectOptions,
   // fetchTotalCount,
 } from "../../redux/dictionary/dictionaryOperations";
 import {
@@ -24,6 +24,7 @@ import { Progress } from "../../components/Progress/Progress";
 import { useModalState } from "../../hooks/useModalState";
 import { CommonModal } from "../../components/CommonModal/CommonModal";
 import { AddWordForm } from "../../components/AddWordForm/AddWordForm";
+import { ButtonPopover } from "../../components/ButtonPopover/ButtonPopover";
 // import { Loader } from "../../components/Loader/Loader";
 
 const Dictionary = () => {
@@ -34,7 +35,7 @@ const Dictionary = () => {
   const { isModalOpen, openModal, closeModal } = useModalState();
 
   useEffect(() => {
-    // dispatch(fetchSelectOptions());
+    dispatch(fetchSelectOptions());
     dispatch(fetchOwnWords());
     dispatch(resetFilters());
     // dispatch(fetchTotalCount());
@@ -60,9 +61,7 @@ const Dictionary = () => {
     },
     {
       accessor: "_id",
-      Cell: ({ row }) => (
-        <button onClick={() => console.log(row.original._id)}>...</button>
-      ),
+      Cell: ({ row }) => <ButtonPopover id={row.original._id} />,
     },
   ];
   return (

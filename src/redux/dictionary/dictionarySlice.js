@@ -4,7 +4,9 @@ import {
   fetchTotalCount,
   fetchOwnWords,
   createWord,
+  deleteWord,
 } from "./dictionaryOperations";
+import { addRecommendedWord } from "../recommend/recommendOperations";
 
 const dictionaryFilter = {
   keyword: "",
@@ -76,11 +78,33 @@ export const dictionarySlice = createSlice({
         state.totalPages = action.payload.totalPages;
       })
       .addCase(createWord.pending, handlePending)
-      .addCase(createWord.fulfilled, (state) => {
+      .addCase(createWord.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.totalCount += 1;
+        state.ownWords = [...state.ownWords, action.payload];
       })
-      .addCase(createWord.rejected, handleRejected);
+      .addCase(createWord.rejected, handleRejected)
+      .addCase(deleteWord.pending, handlePending)
+      .addCase(deleteWord.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        const newArr = state.ownWords.filter(
+          (word) => word._id !== action.payload.id
+        );
+
+        state.ownWords = newArr;
+        if (state.totalCount > 0) {
+          state.totalCount -= 1;
+        } else {
+          state.totalCount = 0;
+        }
+      })
+      .addCase(deleteWord.rejected, handleRejected)
+      .addCase(addRecommendedWord.fulfilled, (state) => {
+        state.totalCount += 1;
+      });
   },
 });
 

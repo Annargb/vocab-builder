@@ -19,6 +19,7 @@ export const theme = {
     btnBorder: "rgba(252, 252, 252, 0.4)",
     userIconColor: "rgba(252, 252, 252, 0.7)",
     formTextColor: "rgba(252, 252, 252, 0.8)",
+    shadow: "rgba(18, 20, 23, 0.08)",
   },
 
   radii: {

@@ -5,18 +5,19 @@ import { addWordSchema } from "../../schemas/schemas";
 import icons from "../../images/icons.svg";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectOptions } from "../../redux/dictionary/dictionarySelectors";
+import {
+  selectError,
+  selectOptions,
+} from "../../redux/dictionary/dictionarySelectors";
 import Select from "react-select";
 import { addWordSelectStyles } from "../../styles/selectStyles";
-import {
-  createWord,
-  fetchOwnWords,
-} from "../../redux/dictionary/dictionaryOperations";
+import { createWord } from "../../redux/dictionary/dictionaryOperations";
 
 export const AddWordForm = ({ closeModal }) => {
   const options = useSelector(selectOptions);
   const [selectedOption, setSelectedOption] = useState(null);
   const dispatch = useDispatch();
+  const error = useSelector(selectError);
   // const [verbType, setVerbType] = useState("regular");
 
   const {
@@ -38,8 +39,8 @@ export const AddWordForm = ({ closeModal }) => {
     delete data.verbType;
     console.log(data);
     dispatch(createWord(data));
-    dispatch(fetchOwnWords());
-    closeModal();
+
+    error && closeModal();
   };
 
   const verbType = watch("verbType", "regular");
