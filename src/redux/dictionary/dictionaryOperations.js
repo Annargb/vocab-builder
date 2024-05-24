@@ -84,3 +84,18 @@ export const deleteWord = createAsyncThunk(
     }
   }
 );
+
+export const editWord = createAsyncThunk(
+  "dictionary/editWord",
+  async ({ id, data }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`words/edit/${id}`, data);
+      toast.success("The word was successfully changed.");
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

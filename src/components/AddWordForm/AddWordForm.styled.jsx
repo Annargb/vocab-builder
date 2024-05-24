@@ -30,6 +30,7 @@ export const FormText = styled.p`
 
 export const Input = styled.input`
   width: 100%;
+  height: 48px;
   padding: 12px 24px;
   font-weight: 500;
   font-size: 16px;
@@ -48,6 +49,7 @@ export const Input = styled.input`
 
   @media screen and (min-width: 768px) {
     width: 354px;
+    height: 56px;
     padding: 16px 18px;
     font-weight: 400;
     border-color: ${(p) => p.theme.colors.inputTabletBorder};
@@ -83,6 +85,7 @@ export const ButtonWrapper = styled.div`
 export const AddBtn = styled.button`
   max-width: 159px;
   width: 100%;
+  height: 48px;
   padding: 12px;
   font-weight: 700;
   font-size: 16px;
@@ -102,6 +105,7 @@ export const AddBtn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
+    height: 56px;
     font-size: 18px;
     line-height: 1.56;
     padding: 14px;

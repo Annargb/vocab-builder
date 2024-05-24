@@ -5,6 +5,7 @@ import {
   fetchOwnWords,
   createWord,
   deleteWord,
+  editWord,
 } from "./dictionaryOperations";
 import { addRecommendedWord } from "../recommend/recommendOperations";
 
@@ -82,7 +83,9 @@ export const dictionarySlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.totalCount += 1;
-        state.ownWords = [...state.ownWords, action.payload];
+        if (state.ownWords < 7) {
+          state.ownWords = [...state.ownWords, action.payload];
+        }
       })
       .addCase(createWord.rejected, handleRejected)
       .addCase(deleteWord.pending, handlePending)
@@ -104,7 +107,26 @@ export const dictionarySlice = createSlice({
       .addCase(deleteWord.rejected, handleRejected)
       .addCase(addRecommendedWord.fulfilled, (state) => {
         state.totalCount += 1;
-      });
+      })
+      .addCase(editWord.pending, handlePending)
+      .addCase(editWord.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+
+        // const newArr = state.ownWords.map((word) => {
+        //   console.log(word._id);
+        //   console.log(payload._id);
+        //   if (word._id === payload.data._id) {
+        //     console.log(word._id);
+
+        //     console.log(payload.data._id);
+        //     return payload.data;
+        //   }
+        //   return word;
+        // });
+        // state.ownWords = newArr;
+      })
+      .addCase(editWord.rejected, handleRejected);
   },
 });
 

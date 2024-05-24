@@ -34,13 +34,13 @@ export const AddWordForm = ({ closeModal }) => {
     if (data.category === "verb") {
       setValue("isIrregular", verbType === "irregular");
     } else {
-      delete delete data.isIrregular;
+      delete data.isIrregular;
     }
     delete data.verbType;
     console.log(data);
     dispatch(createWord(data));
 
-    error && closeModal();
+    !error && closeModal();
   };
 
   const verbType = watch("verbType", "regular");

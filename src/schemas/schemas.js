@@ -54,3 +54,15 @@ export const addWordSchema = Yup.object().shape({
     .required("English word required")
     .matches(enWordsPattern, "Please enter a word in English"),
 });
+
+export const editWordSchema = Yup.object().shape({
+  ua: Yup.string()
+    .trim()
+    .required("Ukrainian word is required")
+    .matches(uaWordsPattern, "Please enter a word in Ukrainian"),
+
+  en: Yup.string()
+    .trim()
+    .required("English word required")
+    .matches(enWordsPattern, "Please enter a word in English"),
+});

@@ -3,9 +3,12 @@ import { usePopper } from "react-popper";
 import * as v from "./ButtonPopover.styled";
 import { useDispatch } from "react-redux";
 import { deleteWord } from "../../redux/dictionary/dictionaryOperations";
+import { EditWordForm } from "../EditWordForm/EditWordForm";
+import { useModalState } from "../../hooks/useModalState";
+import { CommonModal } from "../CommonModal/CommonModal";
 // import icons from "../../images/icons.svg";
 
-export const ButtonPopover = ({ id }) => {
+export const ButtonPopover = ({ id, word }) => {
   const [showPopover, setShowPopover] = useState(false);
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
@@ -15,6 +18,7 @@ export const ButtonPopover = ({ id }) => {
   });
 
   const dispatch = useDispatch();
+  const { isModalOpen, openModal, closeModal } = useModalState();
 
   const togglePopover = () => {
     setShowPopover(!showPopover);
@@ -55,6 +59,11 @@ export const ButtonPopover = ({ id }) => {
     };
   }, [showPopover, handleClickOutside, handleKeyDown]);
 
+  const handleOpenModal = () => {
+    setShowPopover(false);
+    openModal();
+  };
+
   return (
     <>
       <v.PopoverBtn
@@ -72,7 +81,7 @@ export const ButtonPopover = ({ id }) => {
         >
           <v.BtnContainer>
             <li>
-              <v.ActionsBtn type="button">
+              <v.ActionsBtn type="button" onClick={handleOpenModal}>
                 <v.EditIcon />
                 {/* <v.PopoverIcon>
                   <use href={`${icons}#icon-edit-2`} />
@@ -95,6 +104,13 @@ export const ButtonPopover = ({ id }) => {
           </v.BtnContainer>
         </v.Popover>
       )}
+      <CommonModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        className="edit"
+      >
+        <EditWordForm closeModal={closeModal} word={word} />
+      </CommonModal>
     </>
   );
 };

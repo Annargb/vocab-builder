@@ -26,7 +26,8 @@ export const CloseButton = styled.button`
     }
   }
 
-  &.addWord {
+  &.addWord,
+  &.edit {
     width: 24px;
     height: 24px;
 
@@ -52,7 +53,8 @@ export const CloseIcon = styled.svg`
     }
   }
 
-  &.addWord {
+  &.addWord,
+  &.edit {
     width: 24px;
     height: 24px;
 
@@ -109,6 +111,29 @@ export const CustomModal = styled(Modal)`
     @media screen and (min-width: 768px) {
       min-width: 628px;
       padding: 48px 64px;
+    }
+  }
+
+  &.edit {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 343px;
+    height: 360px;
+    padding: 48px 16px;
+    border-radius: 15px;
+
+    @media screen and (min-width: 375px) {
+      min-width: 343px;
+    }
+
+    @media screen and (min-width: 768px) {
+      min-width: 628px;
+      height: 346px;
+      padding: 64px;
     }
   }
 `;

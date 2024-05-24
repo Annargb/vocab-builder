@@ -23,7 +23,6 @@ export const CommonIcon = styled.svg`
 
 export const AddWordBtn = styled.button`
   display: flex;
-  align-items: center;
   gap: 8px;
 
   &:hover ${CommonIcon}, &:focus ${CommonIcon} {
@@ -37,7 +36,6 @@ export const AddWordBtn = styled.button`
 
 export const TrainLink = styled(Link)`
   display: flex;
-  align-items: center;
   gap: 8px;
 
   &:hover ${CommonIcon}, &:focus ${CommonIcon} {

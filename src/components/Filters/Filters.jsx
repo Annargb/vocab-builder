@@ -43,10 +43,7 @@ export const Filters = ({
 
   const handleInputChange = (e) => {
     const trimmedValue = e.target.value.trim();
-    // if (trimmedValue) {
     debouncedSearch(trimmedValue);
-
-    // debouncedSearch(e.target.value);
   };
 
   return (
