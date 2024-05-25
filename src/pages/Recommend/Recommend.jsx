@@ -16,6 +16,7 @@ import { AddToDictionaryBtn } from "../../components/AddToDictionaryBtn/AddToDic
 import { TableHeader } from "../../components/TableHeader/TableHeader";
 import { NotFoundBlock } from "../../components/NotFoundBlock/NotFoundBlock";
 import { fetchTotalCount } from "../../redux/dictionary/dictionaryOperations";
+import { resetDictionaryFilters } from "../../redux/dictionary/dictionarySlice";
 // import { WordsPagination } from "../../components/WordsPagination/WordsPagination";
 
 const Recommend = () => {
@@ -26,6 +27,7 @@ const Recommend = () => {
   useEffect(() => {
     dispatch(fetchRecommendedWords());
     dispatch(fetchTotalCount());
+    dispatch(resetDictionaryFilters());
   }, [dispatch]);
 
   const columnsData = [

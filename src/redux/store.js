@@ -13,6 +13,7 @@ import {
 import { authReducer } from "./auth/authSlice";
 import { dictionaryReducer } from "./dictionary/dictionarySlice";
 import { recommendReducer } from "./recommend/recommendSlice";
+import { trainingReducer } from "./training/trainingSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -24,6 +25,7 @@ export const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   dictionary: dictionaryReducer,
   recommend: recommendReducer,
+  training: trainingReducer,
 });
 
 export const store = configureStore({

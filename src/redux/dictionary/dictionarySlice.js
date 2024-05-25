@@ -48,6 +48,10 @@ export const dictionarySlice = createSlice({
     setIsIrregular: (state, action) => {
       state.dictionaryFilter.isIrregular = action.payload;
     },
+    resetDictionaryFilters: (state) => {
+      state.dictionaryFilter = dictionaryFilter;
+      state.page = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -131,5 +135,5 @@ export const dictionarySlice = createSlice({
 });
 
 export const dictionaryReducer = dictionarySlice.reducer;
-export const { setKeyword, setCategory, setIsIrregular } =
+export const { setKeyword, setCategory, setIsIrregular, resetDictionaryFilters } =
   dictionarySlice.actions;
