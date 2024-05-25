@@ -1,0 +1,1 @@
+import{u as t,b as e,G as r,o as a,x as i,j as n}from"./index-fd174d5e.js";const o=()=>{const s=t();return e.useEffect(()=>{s(r()),s(a()),s(i())},[s]),n.jsx("div",{children:"Training"})};export{o as default};
