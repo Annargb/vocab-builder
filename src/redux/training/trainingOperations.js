@@ -7,7 +7,6 @@ export const fetchTasks = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("words/tasks");
-      console.log(response.data);
       return response.data;
     } catch (error) {
       toast.error("Oops, something went wrong! Try again later.");

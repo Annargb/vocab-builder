@@ -1,3 +1,4 @@
+import { CircularProgressbar } from "react-circular-progressbar";
 import styled from "styled-components";
 // import CircularProgress from "@mui/material/CircularProgress";
 
@@ -6,6 +7,13 @@ export const ProgressContainer = styled.div`
   align-items: flex-end;
   width: 88px;
   justify-content: space-between;
+
+  &.training {
+    width: 100%;
+    padding-top: 24px;
+    margin-bottom: 8px;
+    justify-content: flex-end;
+  }
 `;
 
 export const ProgressText = styled.span`
@@ -18,6 +26,10 @@ export const ProgressText = styled.span`
     font-size: 22px;
     color: ${(p) => p.theme.colors.black};
   }
+
+  &.training {
+    display: none;
+  }
 `;
 
 export const ProgressWrapper = styled.div`
@@ -27,6 +39,20 @@ export const ProgressWrapper = styled.div`
   @media screen and (min-width: 768px) {
     width: 26px;
     height: 26px;
+  }
+
+  &.training {
+    width: 44px;
+    height: 44px;
+  }
+`;
+
+export const StyledCircularProgressbar = styled(CircularProgressbar)`
+  .CircularProgressbar-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    fill: #121417;
   }
 `;
 
