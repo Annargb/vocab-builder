@@ -1,4 +1,4 @@
-import{a as n,u as c,j as t,i as h,v as x,k as a,b as p,w as i,p as f,x as u,y as g,z as y,A as w}from"./index-c7777208.js";import{D as j,W as b,T as d}from"./WordsTable-88925efc.js";import{N as k}from"./NotFoundBlock-16c2f6a1.js";import"./schemas-8c4a5c09.js";const D=e=>e.recommend.recommendFilter,T=e=>e.recommend.recommendedWords,W=n.span`
+import{a as n,u as c,j as t,i as h,v as x,k as a,b as p,w as i,p as f,x as u,y as g,z as y,A as w}from"./index-c6437887.js";import{D as j,W as b,T as d}from"./WordsTable-47dee0f5.js";import{N as k}from"./NotFoundBlock-f1559890.js";import"./schemas-b7fb753a.js";const D=e=>e.recommend.recommendFilter,T=e=>e.recommend.recommendedWords,W=n.span`
   display: none;
 
   @media screen and (min-width: 768px) {
