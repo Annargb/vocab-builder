@@ -1,4 +1,4 @@
-import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./index-1530df29.js";import{N as P}from"./NotFoundBlock-b2eb0ecb.js";import{P as A}from"./Progress-207ac9fd.js";const j=e=>e.training.tasks,U=n.div`
+import{a as n,b as a,u as b,f as W,k as p,j as t,i as l,C as A,G as O,H as U,o as D,x as H}from"./index-3846d3b5.js";import{N as Y}from"./NotFoundBlock-72c9ead1.js";import{P as q}from"./Progress-d4c46e1e.js";const k=e=>e.training.tasks,J=e=>e.training.error,K=n.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 116px;
@@ -17,7 +17,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
     height: 338px;
     margin-bottom: 80px;
   }
-`,D=n.div`
+`,Q=n.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -26,7 +26,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
     flex-direction: row;
     gap: 10px;
   }
-`,H=n.button`
+`,X=n.button`
   width: 100%;
   padding: 16px;
   font-weight: 700;
@@ -45,7 +45,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
   @media screen and (min-width: 1440px) {
     padding: 14px;
   }
-`,O=n.button`
+`,Z=n.button`
   font-weight: 700;
   font-size: 16px;
   color: ${e=>e.theme.colors.linkColor};
@@ -77,7 +77,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
     min-width: 602px;
     height: 302px;
   }
-`,$=n.textarea`
+`,j=n.textarea`
   width: 100%;
   max-width: 343px;
   height: 195px;
@@ -117,7 +117,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
     border-bottom: none;
     border-right: 1px solid ${e=>e.theme.colors.tableBorder};
   }
-`,Y=n($)`
+`,_=n(j)`
   text-transform: capitalize;
   border-bottom: none;
   border-radius: 0 0 8px 8px;
@@ -125,12 +125,12 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
   @media screen and (min-width: 1440px) {
     border-right: none;
   }
-`,p=n.svg`
+`,c=n.svg`
   width: 20px;
   height: 20px;
   fill: ${e=>e.theme.colors.mainGreen};
   transition: fill 250ms ${e=>e.theme.transition};
-`,q=n.button`
+`,ee=n.button`
   position: absolute;
   left: 22px;
   bottom: 19px;
@@ -142,7 +142,7 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
   line-height: 1.5;
   color: ${e=>e.theme.colors.linkColor};
 
-  &:hover ${p}, &:focus ${p} {
+  &:hover ${c}, &:focus ${c} {
     fill: ${e=>e.theme.colors.black};
   }
 `,u=n.div`
@@ -174,4 +174,4 @@ import{a as n,b as a,u as b,k,j as t,i as l,G as L,H as R,o as V,x as W}from"./i
     font-size: 16px;
     line-height: 150%;
   }
-`,J=()=>{const[e,r]=a.useState(0),[s,x]=a.useState(""),[d,y]=a.useState([]),v=b(),c=k(j),o=c[e],z=o.ua||o.en,C=o.task==="en"?"English":"Ukrainian",I=o.task==="en"?"uk":"ukraine",N=o.task==="ua"?"English":"Ukrainian",S=o.task==="ua"?"uk":"ukraine",h=(i,E)=>{console.log(i);const G=i.task,T={...i,[G]:E},m=[...d,T];y(m),console.log(m)},B=()=>{s&&h(o,s),x(""),r(i=>i+1)},F=()=>{console.log(s),h(o,s),console.log(d),v(L(d))};return t.jsxs("div",{children:[t.jsxs(U,{children:[t.jsxs(g,{children:[t.jsx($,{type:"text",value:s,placeholder:"Введіть переклад",onChange:i=>x(i.target.value)}),c.length-1>e&&t.jsxs(q,{onClick:B,type:"button",children:["Next",t.jsx(p,{children:t.jsx("use",{href:`${l}#link-arrow`})})]}),t.jsxs(u,{children:[t.jsx(w,{children:t.jsx("use",{href:`${l}#${I}`})}),t.jsx(f,{children:C})]})]}),t.jsxs(g,{children:[t.jsx(Y,{type:"text",value:z,readOnly:!0}),t.jsxs(u,{children:[t.jsx(w,{children:t.jsx("use",{href:`${l}#${S}`})}),t.jsx(f,{children:N})]})]})]}),t.jsxs(D,{children:[t.jsx(H,{type:"button",onClick:F,children:"Save"}),t.jsx(O,{type:"button",children:"Cancel"})]})]})},X=()=>{const e=b(),r=k(j);return a.useEffect(()=>{e(R()),e(V()),e(W())},[e]),t.jsx(t.Fragment,{children:r.length===0?t.jsx(P,{title:"You don't have a single word to learn right now.",text:"Please create or add a word to start the workout. We want to improve your vocabulary and develop your knowledge, so please share the words you are interested in adding to your study.",className:"training"}):t.jsxs(t.Fragment,{children:[t.jsx(A,{className:"training",progress:r.length}),t.jsx(J,{})]})})};export{X as default};
+`,te=()=>{const[e,r]=a.useState(0),[s,x]=a.useState(""),[$,y]=a.useState([]),v=b(),{isModalOpen:z,openModal:C,closeModal:I}=W(),S=p(J),h=p(k),i=h[e],N=i.ua||i.en,B=i.task==="en"?"English":"Ukrainian",E=i.task==="en"?"uk":"ukraine",F=i.task==="ua"?"English":"Ukrainian",G=i.task==="ua"?"uk":"ukraine",m=(o,T)=>new Promise(L=>{console.log(o);const P=o.task,V={...o,[P]:T},d=[...$,V];y(d),console.log(d),L(d)}),M=()=>{s&&m(i,s),x(""),r(o=>o+1)},R=async()=>{console.log(s);const o=await m(i,s);v(O(o)),S||C()};return t.jsxs("div",{children:[t.jsxs(K,{children:[t.jsxs(g,{children:[t.jsx(j,{type:"text",value:s,placeholder:"Введіть переклад",onChange:o=>x(o.target.value)}),h.length-1>e&&t.jsxs(ee,{onClick:M,type:"button",children:["Next",t.jsx(c,{children:t.jsx("use",{href:`${l}#link-arrow`})})]}),t.jsxs(u,{children:[t.jsx(w,{children:t.jsx("use",{href:`${l}#${E}`})}),t.jsx(f,{children:B})]})]}),t.jsxs(g,{children:[t.jsx(_,{type:"text",value:N,readOnly:!0}),t.jsxs(u,{children:[t.jsx(w,{children:t.jsx("use",{href:`${l}#${G}`})}),t.jsx(f,{children:F})]})]})]}),t.jsxs(Q,{children:[t.jsx(X,{type:"button",onClick:R,children:"Save"}),t.jsx(Z,{type:"button",children:"Cancel"})]}),t.jsx(A,{isModalOpen:z,closeModal:I})]})},se=()=>{const e=b(),r=p(k);return a.useEffect(()=>{e(U()),e(D()),e(H())},[e]),t.jsx(t.Fragment,{children:r.length===0?t.jsx(Y,{title:"You don't have a single word to learn right now.",text:"Please create or add a word to start the workout. We want to improve your vocabulary and develop your knowledge, so please share the words you are interested in adding to your study.",className:"training"}):t.jsxs(t.Fragment,{children:[t.jsx(q,{className:"training",progress:r.length}),t.jsx(te,{})]})})};export{se as default};

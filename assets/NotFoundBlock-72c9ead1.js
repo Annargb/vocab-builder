@@ -1,4 +1,4 @@
-import{a as t,L as d,j as e}from"./index-1530df29.js";const s="/vocab-builder/assets/list-mobile-1x-1ad86977.png",a="/vocab-builder/assets/list-mobile-2x-199294f3.png",r="/vocab-builder/assets/list-tablet-1x-b2f0ad25.png",x="/vocab-builder/assets/list-tablet-2x-49f3447b.png",p="/vocab-builder/assets/list-desktop-1x-f82d8533.png",c="/vocab-builder/assets/list-desktop-2x-d6e828c5.png",l=t.div`
+import{a as t,L as d,j as e}from"./index-3846d3b5.js";const s="/vocab-builder/assets/list-mobile-1x-1ad86977.png",a="/vocab-builder/assets/list-mobile-2x-199294f3.png",r="/vocab-builder/assets/list-tablet-1x-b2f0ad25.png",x="/vocab-builder/assets/list-tablet-2x-49f3447b.png",p="/vocab-builder/assets/list-desktop-1x-f82d8533.png",c="/vocab-builder/assets/list-desktop-2x-d6e828c5.png",l=t.div`
   display: flex;
   flex-direction: column;
   align-items: center;
