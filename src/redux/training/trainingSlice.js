@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks } from "./trainingOperations";
+import { fetchTasks, sendAnswers } from "./trainingOperations";
 
 const initialState = {
   tasks: [],
+  results: [],
   isLoading: false,
   error: null,
 };
@@ -28,7 +29,14 @@ export const trainingSlice = createSlice({
         state.error = null;
         state.tasks = action.payload.tasks;
       })
-      .addCase(fetchTasks.rejected, handleRejected);
+      .addCase(fetchTasks.rejected, handleRejected)
+      .addCase(sendAnswers.pending, handlePending)
+      .addCase(sendAnswers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.results = action.payload;
+      })
+      .addCase(sendAnswers.rejected, handleRejected);
   },
 });
 

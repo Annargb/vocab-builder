@@ -14,3 +14,17 @@ export const fetchTasks = createAsyncThunk(
     }
   }
 );
+
+export const sendAnswers = createAsyncThunk(
+  "training/answers",
+  async (data, thunkAPI) => {
+    try {
+      const response = await axios.post("words/answers", data);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      toast.error("Oops, something went wrong! Try again later.");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
