@@ -3,8 +3,13 @@ import icons from "../../images/icons.svg";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTasks } from "../../redux/training/trainingSelectors";
+import {
+  selectError,
+  selectTasks,
+} from "../../redux/training/trainingSelectors";
 import { sendAnswers } from "../../redux/training/trainingOperations";
+import { CommonModal } from "../CommonModal/CommonModal";
+import { useModalState } from "../../hooks/useModalState";
 
 export const TrainingRoom = () => {
   const [index, setIndex] = useState(0);
@@ -12,6 +17,8 @@ export const TrainingRoom = () => {
   const [results, setResults] = useState([]);
 
   const dispatch = useDispatch();
+  const { isModalOpen, openModal, closeModal } = useModalState();
+  const error = useSelector(selectError);
 
   const tasks = useSelector(selectTasks);
   const currentData = tasks[index];
@@ -22,17 +29,31 @@ export const TrainingRoom = () => {
     currentData.task === "ua" ? "English" : "Ukrainian";
   const translationIcon = currentData.task === "ua" ? "uk" : "ukraine";
 
-  const handleSave = (currentData, value) => {
-    console.log(currentData);
-    const key = currentData.task;
-    const newValue = {
-      ...currentData,
-      [key]: value,
-    };
+  // const handleSave = (currentData, value) => {
+  //   const key = currentData.task;
+  //   const newValue = {
+  //     ...currentData,
+  //     [key]: value,
+  //   };
 
-    const updatedResults = [...results, newValue];
-    setResults(updatedResults);
-    console.log(updatedResults);
+  //   const updatedResults = [...results, newValue];
+  //   setResults(updatedResults);
+  // };
+
+  const handleSave = (currentData, value) => {
+    return new Promise((resolve) => {
+      console.log(currentData);
+      const key = currentData.task;
+      const newValue = {
+        ...currentData,
+        [key]: value,
+      };
+
+      const updatedResults = [...results, newValue];
+      setResults(updatedResults);
+      console.log(updatedResults);
+      resolve(updatedResults);
+    });
   };
 
   const handleNext = () => {
@@ -46,11 +67,18 @@ export const TrainingRoom = () => {
     setIndex((prevIndex) => prevIndex + 1);
   };
 
-  const saveAnswers = () => {
+  // const saveAnswers = () => {
+  //   handleSave(currentData, inputValue);
+  //   // dispatch(sendAnswers(results));
+  // };
+
+  const saveAnswers = async () => {
     console.log(inputValue);
-    handleSave(currentData, inputValue);
-    console.log(results);
-    dispatch(sendAnswers(results));
+    const updatedResults = await handleSave(currentData, inputValue);
+    dispatch(sendAnswers(updatedResults));
+    if (!error) {
+      openModal();
+    }
   };
 
   return (
@@ -100,6 +128,11 @@ export const TrainingRoom = () => {
         </v.SaveBtn>
         <v.CancelBtn type="button">Cancel</v.CancelBtn>
       </v.BtnContainer>
+      <CommonModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        // className="mobileMenu"
+      ></CommonModal>
     </div>
   );
 };
